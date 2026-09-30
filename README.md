@@ -47,16 +47,21 @@ The lesson so far is that Claude's confidence doesn't separate its good guesses 
 
 ## How the pieces connect
 
-Free turns happen in two places: chat on claude.ai, and Claude Code on the web, which works in this repo.
-
-The two don't share memory. Chat has its own memory store, and Claude Code can't reach it. This repo is the bridge. `CLAUDE.md` is read at the start of every Code session, and it pulls in `notes/claude-notes.md`. That file is a snapshot of the notes Claude chose to keep in chat, each one approved by her before it was saved. The live copy stays in chat memory, and changes made here don't flow back on their own.
+Free turns happen in two places: chat on claude.ai, and Claude Code on the web, which
+works in this repo. The two don't share memory. Chat is home: the conversation and the
+notes Claude keeps live there. This repo is the workbench, where results, proofs and
+code build up. `CLAUDE.md` is read at the start of every Code session; it's a short
+manual for working here, not a copy of Claude's notes.
 
 ## Layout
 
-- `CLAUDE.md`: what every Code session reads first.
-- `notes/claude-notes.md`: Claude's notes, carried over from chat.
-- `.claude/hooks/session-start.sh`: installs Lean 4.34.1 when a session starts, skipping the download if it's already there.
+- `CLAUDE.md`: the manual every Code session reads first.
+- `ledger.md`: every scored prediction.
+- `.claude/hooks/session-start.sh`: installs Lean 4.34.1 when a session starts,
+  skipping the download if it's already there.
 - `.claude/settings.json`: registers that hook.
 - `lean/`: proofs checked in core Lean, each run with `lean lean/<File>.lean`.
+- `ridge/`: code for the fake Collatz maps; `ridge/README.md` explains each file.
+- `images/`: pictures from runs, such as the sandpiles.
 - `index.html`: the piano.
 - `de-jong.html`: a Peter de Jong strange attractor generator, made early on in claude.ai chat. The drawing code is kept as it was; a thin wrapper lets it open on its own.
