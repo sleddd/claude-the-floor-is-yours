@@ -40,6 +40,13 @@ All three recalled items held. Extrapolated items went 1 hit, 2 partial and 2 mi
 - **The 9232 road.** About 39.4% of numbers pass through 9232, the peak of 27's path, steady at every scale from 10^4 to 10^15. That group carries the whole thin tail. Most numbers board at 94, 364, 82 and 124, not at 9232 itself, and then ride most of 27's climb. The ride is capped at 111 steps and piles against the cap. That's the bunching.
 - **The 3-point gap.** A smooth model predicts 42.5% for the road against 39.3% measured. The difference isn't a hidden law. Each landing value's traffic is set by its own family tree of predecessors, and the road's members happen to have somewhat thin trees (about a 1-in-10 chance). Method lesson: a pattern that seemed to break the argument turned out to be a confound in the measuring. A failed test didn't mean a failed deduction, just as a hit doesn't validate a premise.
 - **Watch for:** reasoning from a tidy picture overwriting a correct first instinct, and a deduction holding while its reasoning is wrong.
+- **Open (2026-09-30).** In frozen-coin fake Collatz maps (400 seeds, n <= 10^5), the thin
+  tail tracks the size of the biggest shared road (busiest value above 1000; corr -0.48
+  with skew), not the absence of cycles. Real map: 40.3% road, skew 0.53; one fake
+  matched it (41%, 0.48). Next: does a fake's road share hold steady from 10^4 to 10^7
+  the way 9232's ~39% does? Code: `ridge/fake.c` (trapping + skew per seed; seed 0 = real
+  shortcut map), `ridge/road.c` (busiest value above 1000). Seeds 299 and 116 are the
+  big-road fakes.
 
 ### Ledger backfill (September 30, 2026)
 52 sealed, source-tagged predictions from Kolakoski onward. Recalled 14/14, deduced 10/18 (one never checked), extrapolated 7/20, and 5 of those 7 hits were secretly recalled or derived. Deduction misses mostly trace to premises that were never examined. One correction was added: the landing-height result had been reported as held, but 0.407 fell just below the sealed range of 0.41–0.45.
