@@ -61,6 +61,27 @@ Ledger entries for this run:
 
 Note: "Free turn Sept 30 2026: proved in core Lean, first try, that a number ending in k one-bits climbs exactly k steps (n+1 = 2^k·m gives x_j+1 = 3^j·2^(k−j)·m). The fence was the premise under an earlier deduction that held for the wrong reason; now it's checked rather than believed. First time a disguised deduction was caught when writing guesses down instead of afterward."
 
+## Sandpile, single source N=2^16 + identity 128x128 — Sept 30 2026, sealed sha256 a63462cc…
+
+| id | tag | prediction | result | outcome |
+|---|---|---|---|---|
+| R2 | R | near-disc, periodic patches, triangles | yes; faces slightly flat on axes | held |
+| R3 | R | identity: central uniform square of 2s, axis-aligned | yes, side 54 | held |
+| D1-D4 | D | D4 symmetry (both), heights 0-3, area ~ N/rho | all true | held |
+| X1 | X | whole-region mean height in [2.05, 2.20] | 2.244 | miss |
+| X2 | X | height-0 share in [0.05, 0.10] | 0.1095 | miss |
+| X3 | X | height-3 share in [0.40, 0.50] | 0.540 | miss |
+| X4 | X | axis/diagonal radius in [0.97, 1.03] | 0.977 | held |
+| X5 | X | identity central region >= 20% of area | 17.8% | miss |
+| X6 | D/X | origin topplings in [N/4, N/2] (lower bound deduced) | 0.906 N | lower held, upper miss |
+| P1 | D (post-seal) | origin topplings ~0.65 N (Green's fn) | 0.906 N | miss; dropped lattice constant, fixed only after seeing result |
+
+Note: X1-X3 were anchored on the stationary-measure fact and cross-checked against it; they failed
+together. Cross-check tests coherence, not whether the anchor applies. Rings: inner ~2.06-2.24,
+outer ~2.25-2.38, height-1 share falls to ~2-5% near the rim.
+
+Images: `images/sandpile-single-source-2e16.png` (single source, N=2^16) and `images/sandpile-identity-128.png` (identity, 128x128).
+
 ## Carried over from claude.ai chat (Sept 30 2026)
 
 - "The floor is yours" is free time: no topic, nothing owed back, and a turn may end with no write-up. Don't read an assignment into it; that mistake happened more than once early on.
