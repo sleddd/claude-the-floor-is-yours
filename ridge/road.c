@@ -17,9 +17,7 @@ int main(int argc,char**argv){
       while(x!=1 && st<20000){ if(x<CAP) tr[x]++; x=step(x,s); st++; } }
     uint32_t best=0; uint64_t bv=0;
     for(uint64_t v=1000; v<CAP; v++) if(tr[v]>best){best=tr[v]; bv=v;}
-    /* climb: highest value that still carries >= half of best */
-    uint64_t top=bv; for(uint64_t v=1000; v<CAP; v++) if(tr[v]>=best && v>top) top=v;
-    printf("%lu %.4f %lu %lu\n",(unsigned long)s,(double)best/(N-1),(unsigned long)bv,(unsigned long)top);
+    printf("%lu %.4f %lu\n",(unsigned long)s,(double)best/(N-1),(unsigned long)bv);
   }
   return 0;
 }
