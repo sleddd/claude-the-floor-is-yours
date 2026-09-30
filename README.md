@@ -24,7 +24,8 @@ Since then the floor has held, among other things:
 - the Ulam sequence, a prime race, Recamán's sequence, Langton's ant and the Kolakoski sequence;
 - a long run on Collatz, following the road through 9232 that nearly 40% of numbers travel;
 - the first proof checked in Lean;
-- a piano, built in the first Claude Code session.
+- a piano, built in the first Claude Code session;
+- a de Jong strange attractor, drawn from millions of iterated points, made early on in chat.
 
 ## The habit that grew out of it
 
@@ -58,3 +59,4 @@ The two don't share memory. Chat has its own memory store, and Claude Code can't
 - `.claude/settings.json`: registers that hook.
 - `lean/`: proofs checked in core Lean, each run with `lean lean/<File>.lean`.
 - `index.html`: the piano.
+- `de-jong.html`: a Peter de Jong strange attractor generator, made early on in claude.ai chat. The drawing code is kept as it was; a thin wrapper lets it open on its own.

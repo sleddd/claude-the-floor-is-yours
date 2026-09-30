@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>De Jong Attractor</title>
+<meta name="description" content="A Peter de Jong strange attractor drawn from millions of iterated points. Made by Claude in an early claude.ai chat.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<!-- The generator below was made in claude.ai chat, where the host page supplied
+     these color and font variables. This wrapper supplies them so the file opens
+     on its own; the generator itself is unchanged. -->
+<style>
+  :root { --bg:#fbfaf7; --text-primary:#1f1d1a; --text-secondary:#5c5751; --text-muted:#8a847c;
+          --font-mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --bg:#191816; --text-primary:#efe9e1; --text-secondary:#b5ada3; --text-muted:#8a847c; }
+  }
+  :root[data-theme="dark"] { --bg:#191816; --text-primary:#efe9e1; --text-secondary:#b5ada3; --text-muted:#8a847c; }
+  body { margin:0; padding:24px 16px; background:var(--bg); color:var(--text-primary);
+         font-family:system-ui,-apple-system,"Segoe UI",sans-serif; max-width:600px; margin-inline:auto; }
+  button { font:inherit; font-size:14px; padding:6px 12px; border-radius:6px; cursor:pointer;
+           border:1px solid var(--text-muted); background:transparent; color:var(--text-primary); }
+</style>
+</head>
+<body>
+<h2 class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">A Peter de Jong strange attractor drawn from millions of iterated points, with a button to generate a new random shape.</h2>
+<div style="display:flex;align-items:center;gap:12px;margin:0 0 12px;flex-wrap:wrap">
+<button id="nb"><i class="ti ti-refresh" aria-hidden="true" style="font-size:16px;vertical-align:-2px;margin-right:6px"></i>New shape</button>
+<button id="cl"><i class="ti ti-player-play" aria-hidden="true" style="font-size:16px;vertical-align:-2px;margin-right:6px"></i>Classic</button>
+<span id="pm" style="font-family:var(--font-mono);font-size:12px;color:var(--text-secondary)"></span>
+</div>
+<canvas id="cv" width="1100" height="1100" style="width:100%;max-width:560px;aspect-ratio:1;display:block;margin:0 auto"></canvas>
+<div id="st" style="font-size:12px;color:var(--text-muted);text-align:center;margin-top:8px"></div>
+<script>
+const cv=document.getElementById('cv'),ctx=cv.getContext('2d'),W=cv.width,H=cv.height;
+const pm=document.getElementById('pm'),st=document.getElementById('st');
+const probe=document.createElement('span');probe.style.color='var(--text-primary)';document.body.appendChild(probe);
+let rgb=getComputedStyle(probe).color.match(/\d+/g).map(Number);probe.remove();
+let job=0;
+function f(p,x,y){return[Math.sin(p[0]*y)-Math.cos(p[1]*x),Math.sin(p[2]*x)-Math.cos(p[3]*y)]}
+function good(p){let x=0.1,y=0.1,seen=new Set();for(let i=0;i<20000;i++){[x,y]=f(p,x,y);if(i>100)seen.add(((x+2)*20|0)*200+((y+2)*20|0))}return seen.size>900}
+function rnd(){let p;do{p=[0,0,0,0].map(()=>+(Math.random()*6-3).toFixed(2))}while(!good(p));return p}
+function draw(p){
+const me=++job,cnt=new Float32Array(W*H);let x=0.1,y=0.1,max=1,done=0;const total=4e6,chunk=2e5;
+pm.textContent='a='+p[0]+'  b='+p[1]+'  c='+p[2]+'  d='+p[3];
+const img=ctx.createImageData(W,H);
+function step(){
+if(me!==job)return;
+for(let i=0;i<chunk;i++){[x,y]=f(p,x,y);const px=((x+2.05)/4.1*W)|0,py=((y+2.05)/4.1*H)|0;
+if(px>=0&&px<W&&py>=0&&py<H){const k=py*W+px;const v=++cnt[k];if(v>max)max=v}}
+done+=chunk;const lm=Math.log(1+max),d=img.data;
+for(let k=0;k<W*H;k++){const c=cnt[k];const j=k*4;d[j]=rgb[0];d[j+1]=rgb[1];d[j+2]=rgb[2];d[j+3]=c?Math.min(255,40+215*Math.pow(Math.log(1+c)/lm,0.8)):0}
+ctx.putImageData(img,0,0);
+st.textContent=(done/1e6).toFixed(1)+' million points';
+if(done<total)requestAnimationFrame(step);}
+step();}
+document.getElementById('nb').onclick=()=>draw(rnd());
+document.getElementById('cl').onclick=()=>draw([-2.24,0.43,-0.65,-2.43]);
+draw([-2.24,0.43,-0.65,-2.43]);
+</script>
+</body>
+</html>
