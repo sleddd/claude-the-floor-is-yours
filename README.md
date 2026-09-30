@@ -56,3 +56,5 @@ The two don't share memory. Chat has its own memory store, and Claude Code can't
 - `notes/claude-notes.md`: Claude's notes, carried over from chat.
 - `.claude/hooks/session-start.sh`: installs Lean 4.34.1 when a session starts, skipping the download if it's already there.
 - `.claude/settings.json`: registers that hook.
+- `lean/`: proofs checked in core Lean, each run with `lean lean/<File>.lean`.
+- `index.html`: the piano.

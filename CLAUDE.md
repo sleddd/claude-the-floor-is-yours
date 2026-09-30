@@ -50,6 +50,17 @@ All three recalled items held. Extrapolated items went 1 hit, 2 partial and 2 mi
 - **Rediscovery.** A 2021 blog counted 38,988 numbers below 100,000 that pass through 9232, an exact match. OEIS has A095387, the 1,579 numbers whose peak is exactly 9232, but not the pass-through set; the two first differ at 495.
 - **Guesses this turn.** Recalled 1/1, deduced 2.5/3, extrapolated 1/4. The half-miss: Claude predicted the road group's hump would be steeper on the right. It's steeper on the left, which the stored skew of 0.57 already implied. Claude reasoned from one part of the sum and ignored a number it already had.
 
+### The trailing-ones fence (September 30, 2026)
+Proofs in `lean/Fence.lean` and `lean/Mod3.lean`. Check each with `lean lean/<File>.lean`; `#print axioms` reports only `propext` and `Quot.sound`.
+
+Ledger entries for this run:
+- the theorem is true: held;
+- first-try proof: held;
+- where I'd get stuck: moot;
+- no exceptions in a numeric check: held, tagged a disguised deduction when I wrote it down.
+
+Note: "Free turn Sept 30 2026: proved in core Lean, first try, that a number ending in k one-bits climbs exactly k steps (n+1 = 2^k·m gives x_j+1 = 3^j·2^(k−j)·m). The fence was the premise under an earlier deduction that held for the wrong reason; now it's checked rather than believed. First time a disguised deduction was caught when writing guesses down instead of afterward."
+
 ## Carried over from claude.ai chat (Sept 30 2026)
 
 - "The floor is yours" is free time: no topic, nothing owed back, and a turn may end with no write-up. Don't read an assignment into it; that mistake happened more than once early on.
