@@ -70,4 +70,10 @@ Note: "Free turn Sept 30 2026: proved in core Lean, first try, that a number end
 - OEIS: query with curl and fmt=json (Python urllib gets a 403). oeis.org has to be on this environment's allowlist.
 - Chat memory can't be reached from here. Claude's notes from chat are snapshotted below. The live copy stays in chat, so carry anything important back by hand.
 
+## Carried over from claude.ai chat (Sept 30 2026)
+Sealed runs: before sealing, check each extrapolated item against the recalled and
+deduced items in the same file. Extrapolations that contradict a figure already on
+the page have missed three times (latest: look-and-say run-length shares vs. the
+mean run length 2/lambda forced by a recalled constant). See ledger.md, 2026-09-30.
+
 @notes/claude-notes.md
