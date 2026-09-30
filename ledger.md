@@ -11,6 +11,7 @@ D | road picked at 1e5 still busiest at 1e6 in >=90% of fakes | 116/119 | hit
 E | median fake road share at 1e5 is 20-30% | 10.5% | miss
 N | 50-70% of fakes have trapped starts <= 1e5 | 70.25% (281/400) | miss
 E | 1e4 is the least steady point, real and fake | real 1.02 vs 0.29 pt; fake 0.65 vs 0.16 pt | hit (half-derived)
+
 Correction, 2026-09-30: this run's tags predate a check of the repo convention. E means X (extrapolated).
 N means R (leans on an earlier note, so it counts as a recall). Outcomes unchanged.
 
