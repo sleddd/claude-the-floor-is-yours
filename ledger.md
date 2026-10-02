@@ -94,3 +94,25 @@ together. Cross-check tests coherence, not whether the anchor applies. Rings: in
 outer ~2.25-2.38, height-1 share falls to ~2-5% near the rim.
 
 Images: `images/sandpile-single-source-2e16.png` (single source, N=2^16) and `images/sandpile-identity-128.png` (identity, 128x128).
+
+## Foot run: why the real road is big (Oct 2 2026, sealed.txt sha256 9537f30d...6d30ca42b; code ridge/foot.c)
+foot = smallest start passing the road; fmin = smallest start whose path tops 1000. N = 1e5, seeds 1-400, cycle-free fakes only. Flip = reverse one value's step on the real map.
+
+| id | tag | prediction | result | outcome |
+|---|---|---|---|---|
+| R1 | R | real road 1154, share 40.30% | 1154, 40.30% | held |
+| R2 | R | seed 61 road 1682, 62-64% | 1682, 62.66% | held |
+| R3 | R | real foot = fmin = 27 | 27, 27 | held |
+| R4 | R | 119 of 400 seeds cycle-free | 119 | held |
+| D1 | D | Spearman(log foot, share) <= -0.6 | -0.626 | held, barely |
+| D2 | D | flip 719: road still 1154, within 0.5 pt (hand-traced) | 1154, 40.30% | held |
+| D3 | D | flip 91: busiest share <= 14% | 12.22% (still 1154, foot 103) | held |
+| X1 | X | flip 91: busiest share >= 5% | 12.22% | held |
+| X2 | X | flip 41: busiest share 25-35% | 34.51% | held (half-anchored on on-ramp note) |
+| X3 | X | median fake fmin 45-90 | 97 | miss |
+| X4 | X | real fmin 27 at or below 20th pct of fakes | 1.7th pct (2/119) | held, far past the guess |
+| X5 | X | foot = fmin in >= 60% of fakes | 53.8% | miss |
+| X6 | X | every fake with share >= 30% has foot <= 60 | 8/8, max 49 | held |
+| X7 | X | seed 61 foot <= 20 | 25 | miss |
+
+Tally: R 4/4, D 3/3, X 4/7. The misses share one cause: small numbers' climbs were treated as independent tries, but their paths mostly merge, so a low climber is much rarer than the independent estimate (~25%) suggested.
