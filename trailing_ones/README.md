@@ -7,25 +7,31 @@ Answer: road inheritance. Successive runs of the T-map are exactly independent;
 36.4% of starts n <= 10^6 pass through 319 (t = 6) and inherit "max t >= 6" free.
 
 Sealed before computing, hashes in `sealed.sha256`:
-  sealed.md           d1676a50...  initial predictions, R/D/X tagged
-  sealed_addendum.md  f3057b37...  sealed mid-run, after the pooled result
-                                   looked like a law and before re-measuring
-  sealed_2.md         25c5e505...  sealed before the traffic-vs-t test
+
+```
+sealed.md           d1676a50...  initial predictions, R/D/X tagged
+sealed_addendum.md  f3057b37...  sealed mid-run, after the pooled result
+                                 looked like a law and before re-measuring
+sealed_2.md         25c5e505...  sealed before the traffic-vs-t test
+```
 
 Build everything with `-O2 -lm`. Five C programs, one Python script.
 
 ## Files and expected output
 
+```
 tones.c         Full trajectory scan, n <= 10^6. Writes out_global.txt and
                 per_start.bin (14 MB, not committed). `./tones 1000000`
                 regenerates out_global.txt byte for byte.
                 NOTE: its statistics are POOLED over trajectories, so they
                 measure road traffic, not the map. This is the confound, kept
-                deliberately — see out_global.txt.
+                deliberately -- see out_global.txt.
 
 out_global.txt  The fake law in its original packaging:
                 P(next run starts at t=4 | previous started at t=6) = 0.643
-                against 0.036 expected. One number produced it.
+                against 0.0625 expected (2^-4). One number produced it.
+                sealed_addendum.md records this baseline as 0.036, which is
+                wrong and sealed, so it stays as written there.
 
 pairs.c         The corrected measurement. One pair per integer, no trajectory
                 pooling: t = trailing-ones(n), apply T exactly t times to reach
@@ -57,6 +63,7 @@ twentyseven.py  27's own profile against length-matched starts. Requires
                 the 44th percentile, mean t 2.195 at the 88.5th.
                 Scored as excluded: sealed.md's contamination flag says 27's
                 t-profile was peeked before sealing.
+```
 
 ## Pooled figures (all 22,996,390 odd steps, uncapped)
 
