@@ -116,3 +116,29 @@ foot = smallest start passing the road; fmin = smallest start whose path tops 10
 | X7 | X | seed 61 foot <= 20 | 25 | miss |
 
 Tally: R 4/4, D 3/3, X 4/7. The misses share one cause: small numbers' climbs were treated as independent tries, but their paths mostly merge, so a low climber is much rarer than the independent estimate (~25%) suggested.
+
+## Trailing-ones run: where 27's long runs come from (Oct 2 2026, sealed sha256 d1676a50... / f3057b37... / 25c5e505...; code trailing_ones/)
+
+| id | tag | prediction | result | outcome |
+|---|---|---|---|---|
+| R1 | R | 27 reaches 1 in 111 steps, 41 of them odd | 41 odd steps | held |
+| R2 | R | peak 9232 | 9232 over all values; 3077 is the odd-only peak | held |
+| R3 | R | climb theorem: n+1 = 2^k·m ⟹ x_j+1 = 3^j·2^(k−j)·m, so t trailing ones give t−1 steps at v=1 | consistent with all observed run structure | held |
+| D1 | D | fresh values: P(t=k) = 2^−k, mean 2 | 0.5000011 / 0.2499992 / 0.1249992 / 0.0624986 / 0.0312517, mean 1.999996 | held |
+| D2 | D | step-wise t also 2^−k: t≥4 = 12.5%, t≥6 = 3.1%, mean t = 2 | pooled: t≥4 = 12.43%, mean 1.986, t≥6 = 2.72%; per-k shares off by up to +13.4% at k=6 | partial — aggregates held, t≥6 and per-k shares missed |
+| D3 | D | exactly half of odd steps are fresh | 0.499712 | held |
+| D4 | D | P(max t ≥ 6 in a 41-odd-step path) = 0.47 | 0.5602 | missed — premise failed: trajectories treated as independent samples; 36.37% share 319 |
+| A1 | D | P(t(u)=j \| t) = 2^−j independent, within 2% rel for j=1–5, t=1–6; \|ρ\| < 0.01 | ρ = 0.000021; max cell deviation under 0.6% (rows t=4–8 drift in the fifth decimal) | held |
+| A2 | D | marginal P(t(u)=j) within 1% of 2^−j | max rel err 0.0001 through j=7 | held |
+| A3 | X | no conditional cell above 3× its independent value | — | excluded — sealed text says implied by A1, not scored separately |
+| A4 | X | P(next=4 \| prev=6) drops below 0.07 on the corrected measurement | 0.06250 | held |
+| A5 | X | most-visited values include a t=6 number; 319 or 63 among the top offenders | 319 accounts for 181,869 of 181,869 (6→4) pairs; no t=6 value in the 15 most-visited (highest is 911, t=4) | half — and the 319 clause is a disguised recall, 319 was named in the carried-in question |
+| X1 | X | \|corr(fresh_i, fresh_i+1)\| < 0.02 over n ≤ 10^6 | 0.0386 pooled | missed — 0.000021 on the corrected per-integer measurement, but that measurement didn't exist at seal time |
+| X2 | X | step-wise t within 1% of 2^−k for k = 1–6 | k=2 −3.5%, k=3 +7.9%, k=6 +13.4% | missed |
+| X3 | X | top 1% by peak/n: mean t ≥ 2.3, mean max t ≥ +1.0 over length-matched | mean t 2.4779 vs 1.8851 (+0.593); max t 9.239 vs 7.095 matched (+2.144) | held |
+| X4 | X | 27's max t and count t≥4 inside middle 80% of length-matched | 44.0 and 80.8 percentile | excluded — sealed.md contamination flag; recorded for interest only |
+| X5 | X | 27's largest run supplies more than 20% of its v=1 steps | 5/24 = 0.208 | excluded — same flag; recorded for interest only |
+| B1 | D | mean visits t=1 / t≥4 ≥ 1.5; corr(t, log visits) in [−0.35, −0.05] | ratio 0.984 on [3,10^5), 1.124 on [1000,10^5]; corr −0.0018 | missed — premise failed: within-run gradient tested on a between-run sample |
+| B2 | X | busiest t≥6 number in B1's band is 319, nothing within 10× | 319 lies outside the sealed band; inside it the busiest is 1727 (12,106) with 1151 (12,040) behind | missed |
+
+Totals: R 3/3, D 4.5/7, X 2.5/6, three excluded.
