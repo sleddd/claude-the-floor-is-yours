@@ -160,3 +160,23 @@ N = 10^6, window n in [N/2, N], theta = alpha*n mod 2pi with alpha = 2.571447499
 | X1 | X | lower lobe (theta < hole) holds 50-70% of window Ulam | 0.6105 | held; the range brackets the arc-width ratio 0.955 / 1.619 = 0.59 written beside it, so likely a disguised deduction |
 
 Tally: R 2/2, D 6/7, X 1/1 (probably a disguised deduction). The mechanism held: the hole sits above pi, between S shifted by 2 and S shifted by 3, and it is empty because nothing reaches it, not because it is crowded. D5 missed on its premise that the shifters are small. All 51 feeders are among the 119 Ulam numbers <= 10^6 outside the middle third, but 41 of them are above 100. The sealed premise check asked about 8 and 36: both do feed (658 and 1,751 window Ulam), but they are <= 100, so the D5 miss comes from the larger ones.
+
+## Ulam feeders across scales (Oct 5 2026, sealed.md sha256 18b5a3f0...c5d45713; code ulam2/feeders.c)
+N = 10^5, 10^6, 10^7; window [N/2, N]; M = (2pi/3, 4pi/3). Outputs reproduced exactly at all three scales. Scored in Code; chat did not score this run. In-M feeder counts, the usage-vs-\|delta\| check and the exact edge limits come from a scratch copy of feeders.c that also dumps feeders and outliers; not committed.
+
+| id | tag | prediction | result | outcome |
+|---|---|---|---|---|
+| R1 | R | K(10^7)/10^7 in [0.0735, 0.0745] | 0.074037 | held |
+| D1 | D | every feeder at every N is an outlier; no feeder has \|delta\| >= 2.094; usage falls monotonically with \|delta\| once counts are large | in-M feeders: 2 at 10^5 (7424, 12060; 3 of 3,715 window Ulam), 0 at 10^6, 6 at 10^7 (1 use each, 6 of 369,900); their \|delta\| > 2.094 by definition. Usage among feeders with count >= 100: strictly falling at 10^5 and 10^6, 3 rises at 10^7 (983 at 1.8924 has 1,867, 97 at 1.8970 has 1,942; Spearman -0.988) | miss: all three clauses fail somewhere, though each by a hair. The in-M feeders pair with outliers to make outlier window Ulam, a route outside the mechanism |
+| D2 | D | O(10^7) in [700, 1700]; O(10^5) in [5, 25] | 305; 63 | miss: premise failed (see below) |
+| D3 | D | F(10^7) in [300, 800]; F(10^5) in [3, 14] | 87; 34 | miss: rests on D2 |
+| D4 | D | S(N) strictly decreasing; S(10^5) in [0.80, 0.97]; S(10^7) in [0.55, 0.78] | 0.7984 / 0.7937 / 0.7966 | miss: not monotone, and both ranges missed (10^5 by 0.0016) |
+| D5 | D | share of feeder 2 at 10^7 in [0.22, 0.36] | 0.3690 (0.3653, 0.3691 at 10^5, 10^6) | miss: flat, no dilution |
+| D6 | D | at 10^7 the left edge is below 3.0569 and the right edge above 3.5104, each within 0.02 of 3.049 / 3.526; the hole never widens past those limits | left 3.0664 (3.0806, 3.0569 at 10^5, 10^6); right 3.5261 (3.4826, 3.5104). Exact limits 3.04850 and 3.52555 | partial: the right-edge clause held; the left edge moved up, not down; and the right edge now sits 0.0005 past the exact limit, so never-widens fails on the right |
+| D7 | D | no outlier <= 10^7 has \|delta\| < 1.1403; the record is still 2 | min \|delta\| = 1.1403 at 2 | held |
+| X1 | X | 90% feeder cover grows, at 10^7 between 8 and 25 (about 10 at 10^6) | 7 at all three scales | miss: the sealed 10^6 baseline was itself wrong; it was 7 |
+| X2 | X | > 70% of outliers at 10^7 have \|delta\| > 1.594 | 0.987 (0.937, 0.966 at 10^5, 10^6) | held |
+
+Tally: R 1/1, D 1.5/7 (D6 counted as half), X 1/2.
+
+Premise check, as sealed: constant outlier density was inferred from one order statistic (the max at 10^6). O(10^5) = 63 and O(10^7) = 305 do not bracket it; constant density would give about 12 and 1,190. Growth per decade is N^0.28 and then N^0.41, neither constant density nor logarithmic. The premise is the thing that failed, as the sealed text said it would be if D2-D4 failed together. The dilution arithmetic in D4 was sound, but it assumed new feeders carry comparable weight. Almost every new outlier arrives near the wall (\|delta\| > 1.594: 0.937, 0.966, 0.987), where the usable arc 2pi/3 - \|delta\| is nearly zero. Every top feeder scales by exactly 10x per decade.
