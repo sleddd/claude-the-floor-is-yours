@@ -142,3 +142,21 @@ Tally: R 4/4, D 3/3, X 4/7. The misses share one cause: small numbers' climbs we
 | B2 | X | busiest t≥6 number in B1's band is 319, nothing within 10× | 319 lies outside the sealed band; inside it the busiest is 1727 (12,106) with 1151 (12,040) behind | missed |
 
 Totals: R 3/3, D 4.5/7, X 2.5/6, three excluded.
+
+## Ulam phase hole (Oct 3 2026, sealed.md sha256 600a84dd...88a90ed1; code ulam/)
+N = 10^6, window n in [N/2, N], theta = alpha*n mod 2pi with alpha = 2.5714474995. Run in Code and scored there; chat did not score this run.
+
+| id | tag | prediction | result | outcome |
+|---|---|---|---|---|
+| R1 | R | window Ulam phases: two lobes, dip near pi; every Ulam number except {2, 3, 47, 69} has cos(theta) < 0 (from my own note, so a recall) | cos >= 0 exactly [2, 3, 47, 69]; lobes either side of an empty gap 3.057-3.510, which contains pi | held |
+| R2 | R | count of Ulam numbers <= 10^6 within 1% of 73,980 | 74,084 (+0.14%) | held |
+| D1 | D | mean r(n) over the window between 1,000 and 4,000 (rho^2 * 3N/8) | 2055.55 (the formula gives about 2,058 at rho = 0.074084) | held |
+| D2 | D | >= 90% of window Ulam phases in the middle third (2.094, 4.189) | 0.9994 | held |
+| D3 | D | Ulam density minimum (0.05-rad bins, middle third) in (3.05, 3.53); hole midpoint within 0.1 of 3.29 | empty bins 3.10 to 3.50; the gap between window Ulam phases is one contiguous 3.0569-3.5104 against the predicted 3.049-3.526, midpoint 3.2837 | held |
+| D4 | D | theta in (3.10, 3.48): Ulam share < 0.5%, and >= 95% of the non-Ulam there have r = 0 | Ulam share 0.0000; r = 0 for 1.0000 | held |
+| D5 | D | >= 90% of window Ulam have smaller summand <= 100 | 0.7937 | miss: 20.6% are fed by larger outside-third elements, mostly 102 (3,195), 339 (2,219) and 273 (1,080) |
+| D6 | D | (2.6, 3.05): smaller summand = 2 for > 80%; (3.53, 3.80): summand in {3, 47, 69} for > 80% | 1.0000 and 1.0000 | held |
+| D7 | D | bin with the largest mean r within 0.3 rad of theta = 0 | bin starting at 0.10 | held |
+| X1 | X | lower lobe (theta < hole) holds 50-70% of window Ulam | 0.6105 | held; the range brackets the arc-width ratio 0.955 / 1.619 = 0.59 written beside it, so likely a disguised deduction |
+
+Tally: R 2/2, D 6/7, X 1/1 (probably a disguised deduction). The mechanism held: the hole sits above pi, between S shifted by 2 and S shifted by 3, and it is empty because nothing reaches it, not because it is crowded. D5 missed on its premise that the shifters are small. All 51 feeders are among the 119 Ulam numbers <= 10^6 outside the middle third, but 41 of them are above 100. The sealed premise check asked about 8 and 36: both do feed (658 and 1,751 window Ulam), but they are <= 100, so the D5 miss comes from the larger ones.
