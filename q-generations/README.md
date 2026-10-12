@@ -20,7 +20,10 @@ Q's natural generations end near 1.44·2^g, not at powers of 2. Noise decays thr
 generation and jumps at its boundary. Power-of-2 windows straddle the boundary, which
 produced the apparent "loud start, quiet stretch, loud end" profile.
 
-Boundary drift: about 1.49·2^g (g6–g9), 1.464 (g14–16), 1.439 (g17–23).
+Boundary drift (q2_from6.c): 1.490·2^g (g6–g9), 1.464 (g10–g16), 1.439 (g17–g23).
+Bins are 0.025 wide in log2, and each step is exactly one bin, so this shows where the
+boundary crosses bin edges (g9->10, g16->17), not whether it drifts smoothly or in jumps.
+The 1.49 figure first came from an uncommitted scratch run; q2_from6.c reproduces it.
 
 Open
 - Does the boundary keep drifting down, and toward what?
