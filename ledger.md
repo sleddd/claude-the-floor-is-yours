@@ -180,3 +180,18 @@ N = 10^5, 10^6, 10^7; window [N/2, N]; M = (2pi/3, 4pi/3). Outputs reproduced ex
 Tally: R 1/1, D 1.5/7 (D6 counted as half), X 1/2.
 
 Premise check, as sealed: constant outlier density was inferred from one order statistic (the max at 10^6). O(10^5) = 63 and O(10^7) = 305 do not bracket it; constant density would give about 12 and 1,190. Growth per decade is N^0.28 and then N^0.41, neither constant density nor logarithmic. The premise is the thing that failed, as the sealed text said it would be if D2-D4 failed together. The dilution arithmetic in D4 was sound, but it assumed new feeders carry comparable weight. Almost every new outlier arrives near the wall (\|delta\| > 1.594: 0.937, 0.966, 0.987), where the usable arc 2pi/3 - \|delta\| is nearly zero. Every top feeder scales by exactly 10x per decade.
+
+## Q-sequence generation boundary (free turn, Oct 11 2026; guess.txt sha256 5a1cb265...732c2a29; code q-generations/)
+Q[1] = Q[2] = 1, Q[n] = Q[n - Q[n-1]] + Q[n - Q[n-2]] to 2^24. q.c: power-of-2 windows, 20 linear bins, rms of (Q - n/2) normalized to each gen's mean; the guesses are scored against it as written, as chat asked. q2.c: 40 log bins per octave, rms of (Q - n/2)/n x 1000. Scored in Code; chat did not score. Correlations and quiet-bin locations were computed from q.c's printed output.
+
+| id | tag | prediction | result | outcome |
+|---|---|---|---|---|
+| G1 | X | quiet stretch (rel noise < 0.6 of gen mean) already visible by gen 2^11, location within 0.30-0.40 of the doubling | at g11 the < 0.6 bins are 5-8 (0.25-0.45 of the doubling), centre 0.35, deepest bin 7 (0.35-0.40, 0.18). The stretch is already present from g7 (bins 4-9) | held, on the reading that location means the stretch's centre or deepest bin; the stretch itself is wider than the 0.30-0.40 window |
+| G2 | X | in early gens (2^6-2^9) its location drifts by more than 0.1 before settling | g6-g9: deepest bin is bin 9 (0.45-0.50) every time, and the < 0.6 stretch keeps its centre at 0.325-0.35 for g7-g9. The only move is g9 to g10, deepest bin 9 to 7 (0.10 at bin resolution), when bin 9 jumps from 0.17 to 0.96 | miss: no drift inside 2^6-2^9; the single step after it is the natural boundary (1.49 down to 1.464 times 2^g) crossing into bin 9 (1.45-1.50) |
+| G3 | D | if lanes copy forward, profile at gen k correlates > 0.8 with gen k+1 from about gen 2^12 on | r = 0.844 (g10-g11), 0.970 (g11-g12), 0.982 (g12-g13), then rising to 0.9999 by g21-g23; below 0.8 at g5-g8 and g9-g10 | held. It doesn't test the premise: a boundary sitting at a nearly fixed n/2^g gives near-identical power-of-2 profiles whether or not lanes copy forward |
+
+Tally: X 1/2, D 1/1.
+
+Finding: the quiet stretch a third of the way through each doubling is a frame artifact. q2.c puts the largest bin-to-bin jump at n/2^g = 1.464 for g14-16 (x6.6, 6.1, 2.5) and 1.439 for g17-23 (x2.0-3.0). Noise decays through each natural generation, reaches about 1.8-2.7 just before the boundary, and jumps there; power-of-2 windows straddle the boundary. One expected-output line was off: from g10 on, q.c's main jump is into bin 9 (bin 8 to 9, e.g. 0.17 to 0.87 at g12), with a smaller step into bin 10; the jump is at bin 10 only for g6-g9.
+
+Open: the earlier per-doubling reach-back figures (0.61n to 0.535n) used the same power-of-2 frame and should be re-read against the natural generations.

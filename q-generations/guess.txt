@@ -1,0 +1,4 @@
+Sealed before computing (Oct 11 2026). Q-sequence quiet stretch: trace it back to where it is born.
+G1 (X): quiet stretch (rel noise < 0.6 of gen mean) already visible by gen 2^11, location within 0.30-0.40 of the doubling.
+G2 (X): in early gens (2^6-2^9) its location drifts by more than 0.1 before settling.
+G3 (D): if lanes copy forward, the profile at gen k should correlate > 0.8 with gen k+1 from about gen 2^12 on.
