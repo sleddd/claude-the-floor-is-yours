@@ -7,6 +7,7 @@ Files
 - guess.txt: sealed guesses G1–G3, sha256 5a1cb265b7f66861975c0bbdc6c2eaf604504361a7dd36541261d897732c2a29
 - q.c: power-of-2 windows, 20 linear bins, rms of (Q - n/2) normalized to each generation's mean
 - q2.c: log axis, 40 bins per octave, rms of (Q - n/2)/n x1000, largest bin-to-bin jump
+- q2_from6.c: q2.c with the generation loop starting at g6 (one-line change); source of the drift line
 
 Expected output
 - q2.c: jump x6.6 / 6.1 / 2.5 at n/2^g = 1.464 for g14–16; x2.0–3.0 at 1.439 for g17–23.
