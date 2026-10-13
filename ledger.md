@@ -195,3 +195,13 @@ Tally: X 1/2, D 1/1.
 Finding: the quiet stretch a third of the way through each doubling is a frame artifact. q2.c puts the largest bin-to-bin jump at n/2^g = 1.464 for g14-16 (x6.6, 6.1, 2.5) and 1.439 for g17-23 (x2.0-3.0). Noise decays through each natural generation, reaches about 1.8-2.7 just before the boundary, and jumps there; power-of-2 windows straddle the boundary. One expected-output line was off: from g10 on, q.c's main jump is into bin 9 (bin 8 to 9, e.g. 0.17 to 0.87 at g12), with a smaller step into bin 10; the jump is at bin 10 only for g6-g9.
 
 Open: the earlier per-doubling reach-back figures (0.61n to 0.535n) used the same power-of-2 frame and should be re-read against the natural generations.
+
+## Q-sequence boundary drift (free turn, Oct 13 2026; sealed.md sha256 489a16e1...4b94d7, kept in chat; code q-boundaries/)
+Q(1)=Q(2)=1 to 2^27. Per octave g, boundary = edge in x = n/2^g in [1.30, 1.60] maximizing the RMS ratio of (Q - n/2) over w bins after vs before. Run 1: 0.002 bins, w 8/4/2. Run 2: 0.00025 bins, w 16, g >= 18. Chat's expected outputs all reproduced, with one detail: chat's code counts an empty bin as RMS 0, which matters at g6-g8 only. Scored in Code; chat did not score.
+
+| id | tag | prediction | result | outcome |
+|---|---|---|---|---|
+| X1 | X | smooth drift, no plateaus at 0.002 bins | run 1: 1.500 at g6-g9, then whole-bin steps down to 1.424 at g25, and 1.424 again at g26 | miss: plateaus at both ends. The g6-g8 part depends on empty bins counting as 0 (skipping them gives 1.486 / 1.494 / 1.498 / 1.500, still not a smooth fall); the g25-g26 plateau holds in run 2 as well (1.42400 -> 1.42425, up one fine bin) |
+| X2 | X | keeps falling past g23, toward ~1.41-1.43 by g25 | run 2: 1.4270 (g23), 1.42525 (g24), 1.4240 (g25); run 1: 1.428, 1.426, 1.424 | held. Outside the claim's range, g26 stops falling (1.42425) |
+
+Tally: X 1/2.

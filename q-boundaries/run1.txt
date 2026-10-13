@@ -1,0 +1,21 @@
+g 6 w= 8 boundary x=1.50000 jump 47.00
+g 7 w= 8 boundary x=1.50000 jump 38.33
+g 8 w= 8 boundary x=1.50000 jump 30.60
+g 9 w= 8 boundary x=1.50000 jump 18.14
+g10 w= 8 boundary x=1.48400 jump 9.28
+g11 w= 8 boundary x=1.47800 jump 13.73
+g12 w= 4 boundary x=1.47400 jump 8.63
+g13 w= 4 boundary x=1.47000 jump 9.36
+g14 w= 4 boundary x=1.46800 jump 16.56
+g15 w= 4 boundary x=1.46600 jump 6.46
+g16 w= 4 boundary x=1.45800 jump 2.64
+g17 w= 4 boundary x=1.44800 jump 2.34
+g18 w= 2 boundary x=1.44200 jump 1.78
+g19 w= 2 boundary x=1.44000 jump 1.45
+g20 w= 2 boundary x=1.43600 jump 1.34
+g21 w= 2 boundary x=1.43200 jump 1.36
+g22 w= 2 boundary x=1.43000 jump 1.28
+g23 w= 2 boundary x=1.42800 jump 1.26
+g24 w= 2 boundary x=1.42600 jump 1.23
+g25 w= 2 boundary x=1.42400 jump 1.21
+g26 w= 2 boundary x=1.42400 jump 1.19

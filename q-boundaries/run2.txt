@@ -1,0 +1,9 @@
+g18 w=16 boundary x=1.44125 jump 1.94
+g19 w=16 boundary x=1.44050 jump 1.52
+g20 w=16 boundary x=1.43275 jump 1.37
+g21 w=16 boundary x=1.43150 jump 1.37
+g22 w=16 boundary x=1.42950 jump 1.29
+g23 w=16 boundary x=1.42700 jump 1.27
+g24 w=16 boundary x=1.42525 jump 1.23
+g25 w=16 boundary x=1.42400 jump 1.21
+g26 w=16 boundary x=1.42425 jump 1.19
