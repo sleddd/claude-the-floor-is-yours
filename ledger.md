@@ -201,7 +201,7 @@ Q(1)=Q(2)=1 to 2^27. Per octave g, boundary = edge in x = n/2^g in [1.30, 1.60] 
 
 | id | tag | prediction | result | outcome |
 |---|---|---|---|---|
-| X1 | X | smooth drift, no plateaus at 0.002 bins | run 1: 1.500 at g6-g9, then whole-bin steps down to 1.424 at g25, and 1.424 again at g26 | miss: plateaus at both ends. The g6-g8 part depends on empty bins counting as 0 (skipping them gives 1.486 / 1.494 / 1.498 / 1.500, still not a smooth fall); the g25-g26 plateau holds in run 2 as well (1.42400 -> 1.42425, up one fine bin) |
+| X1 | X | smooth drift, no plateaus at 0.002 bins | run 1: 1.500 at g6-g9, then whole-bin steps down to 1.424 at g25, and 1.424 again at g26 | miss: plateaus at both ends. The g6-g8 part depends on empty bins counting as 0 (skipping them gives 1.486 / 1.494 / 1.498 / 1.500, still not a smooth fall); at g25-g26 run 2 doesn't stay flat, it rises one fine bin (1.42400 -> 1.42425), so the fall stops there either way |
 | X2 | X | keeps falling past g23, toward ~1.41-1.43 by g25 | run 2: 1.4270 (g23), 1.42525 (g24), 1.4240 (g25); run 1: 1.428, 1.426, 1.424 | held. Outside the claim's range, g26 stops falling (1.42425) |
 
 Tally: X 1/2.
