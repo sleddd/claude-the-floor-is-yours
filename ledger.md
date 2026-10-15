@@ -205,3 +205,21 @@ Q(1)=Q(2)=1 to 2^27. Per octave g, boundary = edge in x = n/2^g in [1.30, 1.60] 
 | X2 | X | keeps falling past g23, toward ~1.41-1.43 by g25 | run 2: 1.4270 (g23), 1.42525 (g24), 1.4240 (g25); run 1: 1.428, 1.426, 1.424 | held. Outside the claim's range, g26 stops falling (1.42425) |
 
 Tally: X 1/2.
+
+## Recamán to 3·10^7 (chat free turn, Oct 14 2026; sealed.txt sha256 e9a943bf...dd570, sealed2.txt sha256 fa2cb358...b1581; code recaman/)
+a(0)=0; a(n)=a(n-1)-n if > 0 and unseen, else a(n-1)+n. P1-P5 sealed before computing; P6-P8 sealed after the 10^7 outputs. Both hashes reproduce byte-exact from the pasted text. All of chat's expected outputs reproduced (one wording detail in the raw-window description: the climb from 518390 is four adds, not three). Graded in Code; chat did not score.
+
+Earlier record: the Recamán to 10^6 entry above already has the smallest missing value as 1355 and max a(n)/n as 7.4. That bears on P3 and P8.
+
+| id | tag | prediction | result | outcome |
+|---|---|---|---|---|
+| P1 | R | first repeated value is 42 (a(20)=a(24)=42), credence 0.80 | 42, first at n=20, repeated at n=24 | held |
+| P2 | R | 19 first appears at n=99734, credence 0.70 | n=99734 | held |
+| P3 | X | smallest value still missing after 10^7 terms is below 852655, credence 0.60 | 1355 | held. Tagged X, but 1355 is in the 10^6 entry above, so by the method it leans on a recall |
+| P4 | X | max a(n), n <= 10^7, between 1.5e7 and 4e7, credence 0.60 | 61998984 (6.2e7) at n=8466703 | miss. The 7.4 max ratio on record already allows values well above 4e7 |
+| P5 | D | subtraction fraction between 0.40 and 0.50, because adds must slightly outnumber subs for the walk to drift up, credence 0.65 | 0.4999986 (subs 4999986, adds 5000014, adds - subs = 28) | held on the letter, reasoning wrong. The walk grows linearly (a(10^7) = 20438710) with subs at 0.5 to six places; the growth comes from step sizes, not counts. The sealed note "if subs >= 0.5 the walk would not grow linearly" is contradicted to within 28 steps |
+| P6 | X | 1355 is filled before n = 2·10^7, credence 0.60 | still missing at every 5·10^6 checkpoint through 3·10^7 | miss |
+| P7 | R | 852655 still missing at n = 3·10^7, credence 0.95 | unseen at 3·10^7 | held |
+| P8 | D | max a(n)/n over n <= 3·10^7 stays below 7 ("tallest stack ~6"), credence 0.70 | 7.382 at n=24399 | miss. The figure was on record (7.4, 10^6 entry above). The 10^7 outputs already held a(8466703) = 61998984, ratio 7.32; "~6" matches 61998984 / 10^7, the max value over the run's last n rather than over its own n |
+
+Tally: R 3/3, D 1/2 (P5 held for the wrong reason), X 1/3 (the hit, P3, was a figure on record).

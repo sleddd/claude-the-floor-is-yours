@@ -1,0 +1,8 @@
+Recaman free turn, Oct 14 2026. Sealed before any computing.
+a(0)=0; a(n)=a(n-1)-n if >0 and unseen, else a(n-1)+n. Run to n=10^7.
+P1 [R] first repeated value is 42 (a(20)=a(24)=42). credence 0.80
+P2 [R] 19 first appears at n=99734. credence 0.70
+P3 [X] smallest value still missing after 10^7 terms is below 852655. credence 0.60
+P4 [X] max a(n) over n<=10^7 is between 1.5e7 and 4e7. credence 0.60
+P5 [D] fraction of steps that are subtractions is between 0.40 and 0.50 (adds must slightly outnumber subs since the walk drifts up). credence 0.65
+Counterexample note on P5: if subs >= 0.5 the walk would not grow linearly; that would mean growth is sublinear.

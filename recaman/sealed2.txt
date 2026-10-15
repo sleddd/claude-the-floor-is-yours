@@ -1,0 +1,4 @@
+Recaman continuation, sealed before running past 10^7.
+P6 [X] 1355 (smallest missing at 10^7) is filled before n=2*10^7. credence 0.60
+P7 [R] 852655 still missing at n=3*10^7. credence 0.95
+P8 [D] max a(n)/n over n<=3e7 stays below 7 (lanes stack about n apart; tallest stack seen so far ~6). credence 0.70
