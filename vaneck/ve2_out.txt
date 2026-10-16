@@ -1,0 +1,16 @@
+N=1000       Z=198       Z*lnN/N=1.3677  Z*(lnN-1)/N=1.1697  smallest_unseen=53
+N=2000       Z=373       Z*lnN/N=1.4176  Z*(lnN-1)/N=1.2311  smallest_unseen=74
+N=5000       Z=887       Z*lnN/N=1.5110  Z*(lnN-1)/N=1.3336  smallest_unseen=127
+N=10000      Z=1703      Z*lnN/N=1.5685  Z*(lnN-1)/N=1.3982  smallest_unseen=251
+N=20000      Z=3277      Z*lnN/N=1.6227  Z*(lnN-1)/N=1.4588  smallest_unseen=379
+N=50000      Z=7808      Z*lnN/N=1.6896  Z*(lnN-1)/N=1.5335  smallest_unseen=820
+N=100000     Z=15099     Z*lnN/N=1.7383  Z*(lnN-1)/N=1.5873  smallest_unseen=1594
+N=200000     Z=29241     Z*lnN/N=1.7846  Z*(lnN-1)/N=1.6384  smallest_unseen=1908
+N=500000     Z=70253     Z*lnN/N=1.8438  Z*(lnN-1)/N=1.7033  smallest_unseen=5404
+N=1000000    Z=136529    Z*lnN/N=1.8862  Z*(lnN-1)/N=1.7497  smallest_unseen=8756
+N=2000000    Z=265607    Z*lnN/N=1.9268  Z*(lnN-1)/N=1.7940  smallest_unseen=13923
+N=5000000    Z=641240    Z*lnN/N=1.9782  Z*(lnN-1)/N=1.8500  smallest_unseen=31960
+N=10000000   Z=1250523   Z*lnN/N=2.0156  Z*(lnN-1)/N=1.8906  smallest_unseen=53791
+N=20000000   Z=2441345   Z*lnN/N=2.0521  Z*(lnN-1)/N=1.9300  smallest_unseen=77443
+N=50000000   Z=5918735   Z*lnN/N=2.0985  Z*(lnN-1)/N=1.9801  smallest_unseen=246337
+N=100000000  Z=11576061  Z*lnN/N=2.1324  Z*(lnN-1)/N=2.0166  smallest_unseen=295927

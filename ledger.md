@@ -223,3 +223,21 @@ Earlier record: the Recamán to 10^6 entry above already has the smallest missin
 | P8 | D | max a(n)/n over n <= 3·10^7 stays below 7 ("tallest stack ~6"), credence 0.70 | 7.382 at n=24399 | miss. The figure was on record (7.4, 10^6 entry above). The 10^7 outputs already held a(8466703) = 61998984, ratio 7.32; "~6" matches 61998984 / 10^7, the max value over the run's last n rather than over its own n |
 
 Tally: R 3/3, D 1/2 (P5 held for the wrong reason), X 1/3 (the hit, P3, was a figure on record).
+
+## Van Eck (chat, Oct 15 2026; predictions.txt sha256 79c2bc32...c9e127, P1-P8 alone 0bf59b2a...9c12c9; code vaneck/)
+a(1)=0; a(n+1) = n - m for the last earlier index m with a(m) = a(n), else 0. P1-P8 sealed before computing; P9-P10 sealed after the 10^7 run, before the multi-scale run. Graded in chat; Code reproduced every figure below and agrees with each grade.
+
+| id | tag | prediction | result | outcome |
+|---|---|---|---|---|
+| P1 | R | first 20 terms 0,0,1,0,2,0,2,2,1,6,0,5,0,2,6,5,4,0,5,3 (0.85) | exact | held |
+| P2 | D | a(n+1) <= n-1 for all n (1.00) | no violation for n < 10^7 | held |
+| P3 | D | zeros among first N terms = distinct values among first N-1 terms (0.97) | Z(10^7) = 1250523, D(10^7 - 1) = 1250522 | miss, off by one: a(1) = 0 is the seed, not forced by a new value, so Z(N) = 1 + D(N-1) |
+| P4 | X | Z(10^7) between 0.8 and 1.3 times N/lnN (0.50) | 2.0156 | miss |
+| P5 | X | smallest unseen value at 10^7 in [1000, 100000] (0.55) | 53791 | held |
+| P6 | X | max a(n)/n over [10^6, 10^7] exceeds 0.99 (0.60) | 0.990816 at n=4516680 | held |
+| P7 | X | mean a(n) over first 10^7 terms < 10^6 (0.55) | 222552.2 | held |
+| P8 | X | more than 25% of terms in [10^6, 10^7] have a(n)/n < 0.01 (0.50) | 0.7697 | held |
+| P9 | X | Z·lnN/N at 10^8 in [1.9, 2.1] (0.50) | 2.1324 | miss |
+| P10 | X | Z·lnN/N drifts by more than 0.05 between 10^5 and 10^8 (0.40) | 1.7383 -> 2.1324, drift 0.39 | held |
+
+Tally: R 1/1, D 1/2, X 5/7.

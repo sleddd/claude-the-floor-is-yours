@@ -1,0 +1,6 @@
+first 20: 0 0 1 0 2 0 2 2 1 6 0 5 0 2 6 5 4 0 5 3
+P2 violations (a(n+1) > n-1), n < 1e7: 0
+Z(1e7)=1250523  distinct in first 1e7 = 1250522  distinct in first 1e7-1 = 1250522
+mean a(n), n<=1e7 = 222552.2  max a(n) = 9819448
+n in [1e6,1e7]: max a(n)/n = 0.990816 at n=4516680; share a(n)/n < 0.01 = 0.7697
+deciles: 0.8892 0.0358 0.0207 0.0146 0.0112 0.0090 0.0073 0.0060 0.0045 0.0017

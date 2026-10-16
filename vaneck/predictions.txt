@@ -1,0 +1,15 @@
+Van Eck sequence (OEIS A181391), a(1)=0; a(n+1) = n - m where m<n is the last index with a(m)=a(n), else 0.
+Sealed Oct 15 2026 before any computation. Tags: R recalled, D deduced, X extrapolated.
+
+P1 [R, 0.85] first 20 terms: 0,0,1,0,2,0,2,2,1,6,0,5,0,2,6,5,4,0,5,3
+P2 [D, 1.00] a(n+1) <= n-1 for all n (sanity check)
+P3 [D, 0.97] number of zeros among first N terms = number of distinct values among first N-1 terms (each new value forces the next term to 0)
+P4 [X, 0.50] zeros Z(N) at N=1e7 is between 0.8 and 1.3 times N/ln N
+P5 [X, 0.55] smallest value never yet seen in first 1e7 terms lies between 1,000 and 100,000
+P6 [X, 0.60] max a(n)/n over n in [1e6, 1e7] exceeds 0.99
+P7 [X, 0.55] mean of a(n) over first N terms grows slower than N/10 at N=1e7 (mean < 1e6)
+P8 [X, 0.50] a(n)/n is not uniform: more than 25% of terms in [1e6,1e7] have a(n)/n < 0.01
+
+Addendum sealed after the 1e7 run, before any multi-scale run:
+P9 [X, 0.50] Z(N)*ln(N)/N at N=1e8 lies in [1.9, 2.1]
+P10 [X, 0.40] Z(N)*ln(N)/N is drifting (changes by more than 0.05 between 1e5 and 1e8), i.e. 2 is a coincidence of scale
