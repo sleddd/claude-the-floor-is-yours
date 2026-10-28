@@ -1,0 +1,7 @@
+Turn 3. Test the log-family formula on the next sprint.
+Convention: sprint starts counted from a(0); detector as before (start where a[i+30]/a[i] > 1.08, search from i=50).
+Formula: r^2 = V*(ln n1/ln n0)^c with V=2.54, c=1.25, n0=108073 gives n1 = 176775.
+P10 (deduced from fitted formula, 0.6): the next sprint starts within 1% of 176775 (175007..178543).
+P11 (extrapolated, 0.55): value ratio a(n1)/a(108073) lies in [2.50, 2.58].
+P12 (extrapolated, 0.45): c for the cycle 108073 -> n1 is below 1.30.
+P13 (extrapolated, 0.4): index ratio for that cycle is below 1.639 (the drift continues).

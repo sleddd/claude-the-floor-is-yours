@@ -262,3 +262,15 @@ Tally: 6/9 (tags unknown). P1 and P2 both held only once read at the same phase 
 Correction (Oct 28 2026): the sealed text came over after grading. All three files rebuilt from it reproduce their hashes byte-exact (stanley/sealed*.txt). Tags as sealed: P1 D~, P2 X, P3 X, P4 X, P5 D, P6 X, P7 D, P8 X, P9 X. D~ is new here: P1 was sealed as "deduced-ish", a deduction leaning on the Odlyzko-Stanley guess that Type 2 seeds grow like n²/log n, which is recalled from the literature. No outcome changes. Two notes from the full wording: P5's stated reason, that under n²/log n the value ratio must creep up toward 1.66² = 2.76, is not borne out (2.540 before the seal, then 2.533, 2.551, 2.542), so P5 held on the letter without the creep. P6's reason, a pure discrete scaling with fixed index ratio, fails with the miss.
 
 Tally: D 2/2, D~ 1/1, X 3/6.
+
+## Stanley S(0,4) turn 3: log-family formula on the next sprint (chat, Oct 27 2026; sealed4.txt sha256 ab989a41...1e449ff6; code stanley/)
+Formula r² = V·(ln n1/ln n0)^c with V = 2.54, c = 1.25, n0 = 108073 puts the next sprint at n1 = 176775 (n counted from a(0)). Run to 185000 terms. sealed4.txt rebuilt from the pasted text reproduces its hash. Chat's expected outputs all reproduced (stanley/README.md). Scored in Code; chat reported no tally.
+
+| id | tag | prediction | result | outcome |
+|---|---|---|---|---|
+| P10 | D | next sprint starts within 1% of 176775 (175007..178543) (0.6) | 177128, +0.20% | held. As chat noted, the 1% window admits c from about 0.8 to 1.7, so this tests V and the family's shape, not c |
+| P11 | X | value ratio a(n1)/a(108073) in [2.50, 2.58] (0.55) | 2.5364 | held |
+| P12 | X | c for the cycle 108073 -> n1 below 1.30 (0.45) | 1.375 | miss. Per-cycle c from 1958 on: 1.281, 1.994, 1.374, 1.886, 1.495, 1.391, 1.236, 1.261, 1.375; noise of order 0.1 even in the late cycles |
+| P13 | X | index ratio for that cycle below 1.639, "the drift continues" (0.4) | 1.638966 (177128/108073); the cycle before was 1.638761 | held on the letter, by 3.6 terms of n1. The drift did not continue: the ratio rose slightly. The 1.639 bar was the previous ratio rounded up |
+
+Tally: D 1/1, X 2/3 (P13 held on the letter only).
