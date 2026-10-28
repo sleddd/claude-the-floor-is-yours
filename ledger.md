@@ -241,3 +241,20 @@ a(1)=0; a(n+1) = n - m for the last earlier index m with a(m) = a(n), else 0. P1
 | P10 | X | Z·lnN/N drifts by more than 0.05 between 10^5 and 10^8 (0.40) | 1.7383 -> 2.1324, drift 0.39 | held |
 
 Tally: R 1/1, D 1/2, X 5/7.
+
+## Stanley sequence S(0,4) (chat, Oct 27 2026; sealed.txt sha256 2fa7c34c...5b5853, sealed2.txt 25bfa4b9...604d84a, sealed3.txt ee579a90...c91a0a; code stanley/)
+Greedy 3-AP-free sequence seeded 0, 4, to 120000 terms. P1-P6 from turn 1, P7-P9 from turn 2. Chat's expected outputs reproduced (details in stanley/README.md: sprint n is 0-indexed in chat, and two census shares differ slightly). Scored in Code; chat reported no tally. Only paraphrases came over, not the sealed text, so the hashes aren't checked here and the source tags are unknown; the tag column is left blank.
+
+| id | tag | prediction | result | outcome |
+|---|---|---|---|---|
+| P1 | | a(n)·ln n/n² drifts rather than settles flat over n = 10^3..3·10^4 (0.6) | at sprint starts in range: 0.4330, 0.4440, 0.4361, 0.4108, 0.4022, 0.3835, 0.3739, and on to 0.3589 at 108074. Raw values swing 0.36-0.51 within each cycle | held |
+| P2 | | a(n)/n² falls steadily across that range (0.5) | at sprint starts: 0.0617 -> 0.0370, falling every cycle. On a step-100 grid it is a sawtooth: 255 falls, 35 rises (the sprints) | held, on the same-phase reading |
+| P3 | | local exponent d log a/d log n between 1.85 and 1.95 near n = 3·10^4 (0.35) | windows 100-10000 wide centred on 3·10^4: 0.60-0.69 (3·10^4 sits in a slow stretch between sprints at 24389 and 40135). Over that whole cycle: 1.865 | miss. Only a whole-cycle average lands in the band, and that isn't a local exponent |
+| P4 | | next sprints start near n = 40400 and 67000, each within 3% (0.7) | 40135 (-0.7%), 65949 (-1.6%) | held |
+| P5 | | value ratio for the next two cycles >= 2.50 (0.55) | 2.533, 2.551 | held |
+| P6 | | index ratio stays 1.66 ± 0.01 (0.45) | 1.646, 1.643 (then 1.639) | miss |
+| P7 | | dense bands separated by near-empty bands; each sprint is the frontier crossing a band forbidden as 2·(recent dense band) - (older dense band) (0.55) | bands clear in 1.06x bins (peak ~960 per 10^6 at 85M, 0.2 at 151-170M, ~630 at 215M). For skipped t in [150M, 175M): b in the 74-112M dense band 0.982; a in older dense bands (<7M, 11-18M, 29-44M) 0.924 | held. The a side is all the older dense bands, not one |
+| P8 | | skipped values in a sprint mostly forbidden by (a, b) with b in the most recent dense band and a in the band one cycle back (0.4) | b clause 0.982; a in the band one cycle back (29-44M) 0.280, behind <7M at 0.396 | miss |
+| P9 | | density inside a dense band falls ~1.5x per cycle (0.3) | per cycle, mean density 1.452, 1.487, 1.472, 1.562, 1.545, 1.580, 1.589; peak 1.654, 1.370, 1.411, 1.508, 1.472, 1.456, 1.468 | held. The mean ratio creeps up |
+
+Tally: 6/9 (tags unknown). P1 and P2 both held only once read at the same phase of each cycle; read raw, both sit on a sawtooth.
