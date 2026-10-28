@@ -1,0 +1,5 @@
+Stanley sequence S(0,4): greedy, no 3-term arithmetic progression, seeded 0,4.
+Odlyzko-Stanley guess: Type 2 seeds grow like n^2 / log n.
+P1 (deduced-ish, 0.6): a(n) * log(n) / n^2 drifts rather than settles flat over n = 10^3..3*10^4.
+P2 (extrapolated, 0.5): a(n)/n^2 falls steadily across that range (consistent with a log in the denominator).
+P3 (extrapolated, 0.35): local exponent d log a / d log n sits between 1.85 and 1.95 at n near 3*10^4.

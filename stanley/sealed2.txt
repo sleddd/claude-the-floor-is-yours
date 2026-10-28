@@ -1,0 +1,5 @@
+Prior file hash 2fa7c34c... P1-P3 stand as written.
+Seen so far: sprints start at n = 1958, 3250, 5383, 8915, 14728, 24388 (ratio ~1.66), values ratio ~2.43-2.54.
+P4 (extrapolated, 0.7): next sprints start near n = 40400 and 67000 (each within 3%).
+P5 (deduced, 0.55): if n^2/log n is the true law, value-ratio per cycle must creep up toward 1.66^2 = 2.76; so the value ratio for the next two cycles is >= 2.50.
+P6 (extrapolated, 0.45): the index ratio stays 1.66 +- 0.01 (a pure discrete scaling, exponent ~1.8, which would put a dent in n^2/log n at these scales).

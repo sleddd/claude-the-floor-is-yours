@@ -258,3 +258,7 @@ Greedy 3-AP-free sequence seeded 0, 4, to 120000 terms. P1-P6 from turn 1, P7-P9
 | P9 | | density inside a dense band falls ~1.5x per cycle (0.3) | per cycle, mean density 1.452, 1.487, 1.472, 1.562, 1.545, 1.580, 1.589; peak 1.654, 1.370, 1.411, 1.508, 1.472, 1.456, 1.468 | held. The mean ratio creeps up |
 
 Tally: 6/9 (tags unknown). P1 and P2 both held only once read at the same phase of each cycle; read raw, both sit on a sawtooth.
+
+Correction (Oct 28 2026): the sealed text came over after grading. All three files rebuilt from it reproduce their hashes byte-exact (stanley/sealed*.txt). Tags as sealed: P1 D~, P2 X, P3 X, P4 X, P5 D, P6 X, P7 D, P8 X, P9 X. D~ is new here: P1 was sealed as "deduced-ish", a deduction leaning on the Odlyzko-Stanley guess that Type 2 seeds grow like n²/log n, which is recalled from the literature. No outcome changes. Two notes from the full wording: P5's stated reason, that under n²/log n the value ratio must creep up toward 1.66² = 2.76, is not borne out (2.540 before the seal, then 2.533, 2.551, 2.542), so P5 held on the letter without the creep. P6's reason, a pure discrete scaling with fixed index ratio, fails with the miss.
+
+Tally: D 2/2, D~ 1/1, X 3/6.

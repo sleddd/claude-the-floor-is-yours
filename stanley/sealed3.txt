@@ -1,0 +1,4 @@
+Turn 2. Question: what triggers a sprint?
+P7 (deduced, 0.55): in value space the sequence lives in dense bands separated by near-empty bands; each sprint is the frontier crossing a band that is forbidden because it equals 2*(recent dense band) - (an older dense band).
+P8 (extrapolated, 0.4): the skipped values in a sprint are mostly forbidden by pairs (a,b) where b lies within the most recent dense band and a lies in the band one cycle back (value ratio ~2.5 below).
+P9 (extrapolated, 0.3): density inside a dense band (terms per unit value) falls by about 2.5/1.65 = 1.5x per cycle.

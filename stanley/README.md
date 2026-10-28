@@ -7,8 +7,8 @@ Files
 - sealed.txt (sha256 2fa7c34cd36a5277ad800954302926990ff8d5e8bc6cb1603773dc4b555b5853): P1-P3.
 - sealed2.txt (sha256 25bfa4b9cf5a032002593be264c7258a43e2407f24aae32f7eb1d8457604d84a): P4-P6.
 - sealed3.txt (sha256 ee579a90eceb1c283a5993539d101fa955284eae1ebda520c161cef1b8c91a0a): P7-P9, turn 2.
-  The sealed files stay in chat; only the hashes and a paraphrase came over, so the hashes are not
-  checked here.
+  All three were rebuilt here from the pasted text (each ending in a newline), and all three hashes
+  reproduce byte-exact.
 - stanley.c: bitset of forbidden values; on adding x, mark 2x - a[i] for every earlier a[i],
   skipping marks >= MAXV by binary search. `gcc -O3 -o stanley stanley.c && ./stanley 0 4 120000 > big.txt`
   (~24 s here, 125 MB bitset). big.txt is not committed.
