@@ -1,0 +1,49 @@
+k=1 cutoff=9000 N=1000000 starts=1000000 cycles=1
+  basin min 1 len 3: starts 1000000 (100.0% of n<=N)  road 9232 share 0.3941  exact=yes
+TOP k=1 cutoff=9000 share 0.3941 at 9232 (basin min 1, 100.0%)
+k=5 cutoff=9000 N=1000000 starts=800000 cycles=6
+  basin min 1 len 4: starts 140991 (14.1% of n<=N)  road 9184 share 0.1760  exact=yes
+  basin min 19 len 8: starts 496421 (49.6% of n<=N)  road 10568 share 0.0253  exact=yes
+  basin min 23 len 8: starts 92970 (9.3% of n<=N)  road 15488 share 0.1641  exact=yes
+  basin min 187 len 44: starts 32530 (3.3% of n<=N)  road 13112 share 0.4338  exact=yes  (basin < 5%)
+  basin min 347 len 44: starts 37088 (3.7% of n<=N)  road 14672 share 0.2306  exact=yes  (basin < 5%)
+TOP k=5 cutoff=9000 share 0.1760 at 9184 (basin min 1, 14.1%)
+k=7 cutoff=9000 N=1000000 starts=857143 cycles=2
+  basin min 5 len 6: starts 857143 (85.7% of n<=N)  road 10712 share 0.0305  exact=yes
+TOP k=7 cutoff=9000 share 0.0305 at 10712 (basin min 5, 85.7%)
+k=11 cutoff=9000 N=1000000 starts=909091 cycles=3
+  basin min 1 len 8: starts 197520 (19.8% of n<=N)  road 12752 share 0.0646  exact=yes
+  basin min 13 len 22: starts 711571 (71.2% of n<=N)  road 9836 share 0.0600  exact=yes
+TOP k=11 cutoff=9000 share 0.0646 at 12752 (basin min 1, 19.8%)
+k=13 cutoff=9000 N=1000000 starts=923077 cycles=10
+  basin min 1 len 5: starts 476859 (47.7% of n<=N)  road 15616 share 0.0331  exact=yes
+  basin min 131 len 39: starts 252152 (25.2% of n<=N)  road 14392 share 0.1190  exact=yes
+  basin min 211 len 13: starts 33401 (3.3% of n<=N)  road 10180 share 0.2176  exact=yes  (basin < 5%)
+  basin min 259 len 13: starts 38848 (3.9% of n<=N)  road 10756 share 0.4950  exact=yes  (basin < 5%)
+  basin min 227 len 13: starts 19107 (1.9% of n<=N)  road 17072 share 0.1159  exact=yes  (basin < 5%)
+  basin min 287 len 13: starts 43010 (4.3% of n<=N)  road 10436 share 0.5010  exact=yes  (basin < 5%)
+  basin min 251 len 13: starts 19709 (2.0% of n<=N)  road 10432 share 0.5329  exact=yes  (basin < 5%)
+  basin min 283 len 13: starts 25406 (2.5% of n<=N)  road 12040 share 0.5182  exact=yes  (basin < 5%)
+  basin min 319 len 13: starts 14585 (1.5% of n<=N)  road 15728 share 0.3349  exact=yes  (basin < 5%)
+TOP k=13 cutoff=9000 share 0.1190 at 14392 (basin min 131, 25.2%)
+k=17 cutoff=9000 N=1000000 starts=941177 cycles=3
+  basin min 1 len 9: starts 328141 (32.8% of n<=N)  road 11552 share 0.1155  exact=yes
+  basin min 23 len 49: starts 613036 (61.3% of n<=N)  road 13088 share 0.0910  exact=yes
+TOP k=17 cutoff=9000 share 0.1155 at 11552 (basin min 1, 32.8%)
+k=19 cutoff=9000 N=1000000 starts=947369 cycles=2
+  basin min 5 len 16: starts 947369 (94.7% of n<=N)  road 9088 share 0.0881  exact=yes
+TOP k=19 cutoff=9000 share 0.0881 at 9088 (basin min 5, 94.7%)
+k=23 cutoff=9000 N=1000000 starts=956522 cycles=4
+  basin min 41 len 69: starts 478263 (47.8% of n<=N)  road 14768 share 0.0648  exact=yes
+  basin min 5 len 7: starts 64446 (6.4% of n<=N)  road 10268 share 0.3066  exact=yes
+  basin min 7 len 7: starts 413813 (41.4% of n<=N)  road 10160 share 0.0880  exact=yes
+TOP k=23 cutoff=9000 share 0.3066 at 10268 (basin min 5, 6.4%)
+k=25 cutoff=9000 N=1000000 starts=960000 cycles=8
+  basin min 7 len 24: starts 423991 (42.4% of n<=N)  road 13072 share 0.0391  exact=yes
+  basin min 17 len 12: starts 376009 (37.6% of n<=N)  road 9508 share 0.5083  exact=yes
+  basin min 5 len 4: starts 28286 (2.8% of n<=N)  road 17320 share 0.2380  exact=yes  (basin < 5%)
+  basin min 95 len 8: starts 99078 (9.9% of n<=N)  road 10480 share 0.0588  exact=yes
+  basin min 115 len 8: starts 18673 (1.9% of n<=N)  road 12640 share 0.2953  exact=yes  (basin < 5%)
+  basin min 935 len 44: starts 6457 (0.6% of n<=N)  road 32780 share 0.4304  exact=yes  (basin < 5%)
+  basin min 1735 len 44: starts 7506 (0.8% of n<=N)  road 10360 share 0.2967  exact=yes  (basin < 5%)
+TOP k=25 cutoff=9000 share 0.5083 at 9508 (basin min 17, 37.6%)
