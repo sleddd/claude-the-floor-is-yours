@@ -1,0 +1,11 @@
+nodes 2168611
+share(9232) 0.394059
+window top [(9232, 394059), (6154, 393979), (7288, 367852), (5536, 28885), (11072, 28874)]
+best off-road 5536 0.028885 | on-road in window: [6154, 7288, 9232]
+medians [all visited] 0mod3=1 (n=333333) 4mod6=3.0 (n=805300) other=4.0 (n=1029978) ratio=0.33333
+medians [window] 0mod3=7.0 (n=5000) 4mod6=1219.0 (n=2500) other=474 (n=7501) ratio=0.00574
+medians [v<=N] 0mod3=1 (n=333333) 4mod6=26 (n=166667) other=8.0 (n=500000) ratio=0.03846
+27 even values: 70, 4mod6 rate 0.7000
+traffic-weighted 4mod6 rate among evens [all visited]: 0.6621
+traffic-weighted 4mod6 rate among evens [window]: 0.6888
+traffic-weighted 4mod6 rate among evens [v<=N]: 0.6533

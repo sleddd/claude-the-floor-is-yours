@@ -241,3 +241,18 @@ a(1)=0; a(n+1) = n - m for the last earlier index m with a(m) = a(n), else 0. P1
 | P10 | X | Z·lnN/N drifts by more than 0.05 between 10^5 and 10^8 (0.40) | 1.7383 -> 2.1324, drift 0.39 | held |
 
 Tally: R 1/1, D 1/2, X 5/7.
+
+## The 9232 road on the standard map (chat, Nov 4 2026; sealed.txt sha256 d8f9b871...762ceb59, file not in the block so not reproduced; code road/)
+Standard map, starts 1..10^6, traffic(v) = starts whose path visits v. All of chat's expected outputs reproduced. The residue-class medians in them are over values in [5000, 20000]; the 0.6621 average is traffic-weighted over all visited even values. Graded in Code; chat did not score.
+
+| id | tag | prediction | result | outcome |
+|---|---|---|---|---|
+| P1 | R | share(9232) in [0.39, 0.41] (0.9) | 0.394059 | held. The 39.4% figure is on record (9232 road entry above) |
+| P2 | X | 9232 has the top traffic in [5000, 20000] (0.75) | 9232 394059, then 6154 393979, 7288 367852 | held. 6154 and 7288 feed 9232 on 27's road, so they can't beat it; 4616, the next road value, is below 5000. The claim was really decided by P3 |
+| P3 | X | best value off 27's road in the window is under 5% (0.5) | 5536, 0.028885 | held |
+| P4 | D | median traffic of 0 mod 3 values over median of 4 mod 6 values < 0.7 (0.7) | 7 / 1219 = 0.00574 in the window; 1/3 = 0.333 over all visited values; 1/26 = 0.0385 over values <= 10^6 | held at every scope. The reasoning (0 mod 3 values have no odd predecessor) is right; the threshold was loose by two orders of magnitude in the window |
+| P5 | X | the 4 mod 6 rate among 27's even values beats the traffic-weighted average by > 5 pts (0.35) | 0.7000 (49 of 70) vs 0.6621: +3.8 pts | miss. Also a miss against the window-weighted rate (0.6888, +1.1) and the rate over values <= 10^6 (0.6533, +4.7) |
+
+Tally: R 1/1, D 1/1, X 2/3.
+
+Open question answered (road/README.md): the runner-up hubs 5536, 7381 and 9841 are one road, not three. They sit 8, 5 and 2 steps after the peak of 447's climb, 39364, on a single descent, and traffic grows down it as starts board (25682 at 39364, 28885 at 5536). Still open: whether that ~2.9% road holds across scales like 9232's.

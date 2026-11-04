@@ -1,0 +1,10 @@
+hub 5536: traffic 28885 (0.0289), on 27 road False, smallest start 447, its peak 39364, hub at step 61, peak at step 53 (after peak by 8), hub/peak 0.141
+   path around hub: [7381, 22144, 11072, 5536, 2768, 1384, 692]
+hub 7381: traffic 28784 (0.0288), on 27 road False, smallest start 447, its peak 39364, hub at step 58, peak at step 53 (after peak by 5), hub/peak 0.188
+   path around hub: [9841, 29524, 14762, 7381, 22144, 11072, 5536]
+hub 9841: traffic 25684 (0.0257), on 27 road False, smallest start 447, its peak 39364, hub at step 55, peak at step 53 (after peak by 2), hub/peak 0.250
+   path around hub: [13121, 39364, 19682, 9841, 29524, 14762, 7381]
+hub 13120: traffic 9088 (0.0091), on 27 road False, smallest start 255, its peak 13120, hub at step 15, peak at step 15 (after peak by 0), hub/peak 1.000
+   path around hub: [2915, 8746, 4373, 13120, 6560, 3280, 1640]
+hub 39364: traffic 25682 (0.0257), on 27 road False, smallest start 447, its peak 39364, hub at step 53, peak at step 53 (after peak by 0), hub/peak 1.000
+   path around hub: [8747, 26242, 13121, 39364, 19682, 9841, 29524]
