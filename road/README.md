@@ -8,6 +8,7 @@ Files
 - road.py: share(9232), top traffic in [5000, 20000], best value off 27's road, medians by
   residue class, 27's 4 mod 6 rate among its even values against the traffic-weighted rate.
   `python3 road.py` (~8 s). Output in road_out.txt.
+- scale.c: shares of 9232, 39364, 9841, 7381, 5536, 13120 at 10^4..10^9, see below.
 - hubs.py: for given values, traffic at 10^6, smallest start through each, and where it sits
   relative to that start's peak. `python3 hubs.py 5536 7381 9841 13120 39364`. Output in hubs_out.txt.
 
@@ -29,4 +30,10 @@ road as starts board: 39364 25682, 9841 25684, 7381 28784, 5536 28885. So the ru
 second road, not separate hubs. Among the record climbs that avoid 9232 (127 -> 4372,
 255 -> 13120, 447 -> 39364, 703 -> 250504, 1819 -> 1276936), only 447's feeds the window's
 runner-ups; 255's peak 13120 carries 0.91%, and 703 and 1819 pass none of these values.
-Still open: whether the 39364 road's ~2.9% holds across scales the way 9232's ~39.4% does.
+Scale test (scale.c, `gcc -O2 -o scale scale.c && ./scale 1000000000`, ~1 min, 1 GB; output in
+scale_out.txt; its 10^6 row matches road.py exactly): the second road holds. 5536's share is 0.0273,
+0.0294, 0.0289, 0.0290, 0.0290, 0.0291 at 10^4..10^9; 9232's is 0.4011, 0.3899, 0.3941, 0.3935,
+0.3931, 0.3930. 13120 (0.9%) holds too.
+Open: traffic(v) is the share of starts in v's backward tree, so stable shares may be the default
+for every value, with roads just the values whose trees are thick. Check whether every value in
+[5000, 20000] keeps its share from 10^6 to 10^8, and what sets tree thickness.
