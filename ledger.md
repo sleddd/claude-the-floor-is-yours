@@ -241,3 +241,17 @@ a(1)=0; a(n+1) = n - m for the last earlier index m with a(m) = a(n), else 0. P1
 | P10 | X | Z·lnN/N drifts by more than 0.05 between 10^5 and 10^8 (0.40) | 1.7383 -> 2.1324, drift 0.39 | held |
 
 Tally: R 1/1, D 1/2, X 5/7.
+
+## 3x+k roads (chat free turn, Nov 3 2026; sealed.txt sha256 1adbb601...644349; code road/)
+Map n even -> n/2, n odd -> 3n+k, k in {1,5,7,11,13,17,19,23,25}, starts n <= 10^6. P1-P4 sealed before computing, against the sealed measure: share of v = fraction of all starts visiting v, road = max over 1000 <= v < 10^7, cycle members included (road/old.c, out_sealed.txt). The measure was fixed afterwards: cycle elements out, multiples of k out as starts, share taken within each basin holding >= 5% of all n, cutoffs 5000/9000/20000 (road/road.c). Graded against the sealed wording; the last column says where the fix changes the grade. sealed.txt reproduces its hash byte-exact. All of chat's expected outputs for the fixed measure reproduced. Graded in Code; chat did not score.
+
+| id | tag | prediction | result (sealed measure) | outcome | under the fix |
+|---|---|---|---|---|---|
+| P1 | D | k=1: road share >= 0.39, sitting on 27's path at or after 9232 (0.85) | 0.4091 at 1300, on 27's path seven steps after 9232 (9232 4616 2308 1154 577 1732 866 433 1300) | held | held at cutoffs 5000 and 9000 (0.3941 at 9232 itself); at cutoff 20000 the road is 0.0289 at 22144, a miss |
+| P2 | X | of k = 5..25, at most 2 have a road >= 0.25 (0.5) | two: k=13 0.2522 at 1048 and k=23 0.4783 at 1030, both cycle members; the rest 0.1049-0.2139 | held | held at every cutoff, but by different k: 23 and 25 at 5000 and 9000 (0.3269/0.5146, 0.3066/0.5083), only 25 at 20000. With cycle members dropped alone, none reach 0.25 (k=23 best 0.1563) |
+| P3 | X | k=5, 25: the scaled copy of 3x+1 among multiples of k shows up but does not set the max road (0.6) | the copy's cycle k·{1,2,4} is reached (20.0% / 4.0% of starts); its best road is 1220 = 5·244 at 0.0820 (rank 5, max 0.1049 at 1448) and 1000 = 25·40 at 0.0375 (rank 91, max 0.2139 at 1108) | held | not gradeable: multiples of k are no longer starts, so the copy is gone |
+| P4 | X | k with more distinct cycles reached have smaller roads, rank correlation negative (0.55) | cycles reached 1,6,2,3,10,3,2,4,8 for k = 1..25 in order; Spearman +0.134 over the nine k | miss | dropping cycle members alone gives -0.361 (held); the full fix gives +0.460 at 5000 and 9000 and +0.545 at 20000 (cycles reached from non-multiples), still a miss |
+
+Tally: D 1/1, X 2/3.
+
+Note: the sealed measure's two biggest non-k=1 roads (k=13, k=23) are cycle members with v >= 1000, so their share is the whole basin's. P2's hit rests on them; the fix keeps the count at two with a different pair.

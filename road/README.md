@@ -1,9 +1,11 @@
 # road: biggest shared road across 3x+k (chat, Nov 4 2026)
 
 Map: x odd -> 3x+k, x even -> x/2, for k in {1,5,7,11,13,17,19,23,25}. Starts n <= 10^6.
-sealed.txt sha256 1adbb60102537a0cbae3702f94ada213b0e6cdd6f31f196fedb49a5a95644349, kept in
-chat. P1-P4 were sealed against a cutoff of 1000 with loop members included; the measure was
-fixed afterwards (below). Grading waits on the sealed text.
+sealed.txt: P1-P4, sealed before computing. `sha256sum sealed.txt` gives
+1adbb60102537a0cbae3702f94ada213b0e6cdd6f31f196fedb49a5a95644349; reproduces. They were sealed
+against the measure written in the file (all starts, 1000 <= v < 10^7, cycle members in); the
+measure was fixed afterwards (below). Graded in ledger.md against the sealed wording, with
+where the fix changes each grade.
 
 Measure (as fixed): a start's basin is the cycle it ends in. Multiples of k are left out as
 starts (for k > 1 they only ever visit multiples of k). The road of a basin is the value
@@ -20,6 +22,9 @@ Files
 - out_5000.txt, out_9000.txt, out_20000.txt: all nine k at each cutoff.
   One `exact=NO` line: k=5, basin min 19, cutoff 20000 (not k=5's top basin). Rerun with
   L = 10^9 gives the same road, 21476 at 0.0212, exact=yes.
+- old.c: the sealed measure, for grading. `./old k`. Also prints the best non-cycle value,
+  the cycles reached, and the best multiple of k (the scaled 3x+1 copy) with its rank.
+  Output in out_sealed.txt.
 - analog.c: one start's path, peak, and step of reaching a given value. `./analog 25 79 29512`.
 
 Expected output (from chat): all reproduced exactly.

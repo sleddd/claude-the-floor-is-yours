@@ -1,0 +1,56 @@
+k=1 SEALED road 0.4091 at 1300 | non-cycle best 0.4091 at 1300 | non-multiple starts best 0.4091 at 1300 | cycles reached 1 (1 from non-multiples)
+    cycle min 1 max 4 len 3: 1.0000 of starts
+k=5 SEALED road 0.1049 at 1448 | non-cycle best 0.1049 at 1448 | non-multiple starts best 0.1049 at 1448 | cycles reached 6 (5 from non-multiples)
+    cycle min 1 max 8 len 4: 0.1410 of starts
+    cycle min 19 max 152 len 8: 0.4964 of starts
+    cycle min 5 max 20 len 3: 0.2000 of starts
+    cycle min 23 max 116 len 8: 0.0930 of starts
+    cycle min 187 max 8324 len 44: 0.0325 of starts
+    cycle min 347 max 10196 len 44: 0.0371 of starts
+    scaled copy: best multiple of k is 1220 (= 5 x 244), share 0.0820, rank 5 among all v
+k=7 SEALED road 0.1314 at 1856 | non-cycle best 0.1314 at 1856 | non-multiple starts best 0.1314 at 1856 | cycles reached 2 (1 from non-multiples)
+    cycle min 5 max 40 len 6: 0.8571 of starts
+    cycle min 7 max 28 len 3: 0.1429 of starts
+    scaled copy: best multiple of k is 1120 (= 7 x 160), share 0.0659, rank 12 among all v
+k=11 SEALED road 0.1860 at 1088 | non-cycle best 0.1860 at 1088 | non-multiple starts best 0.1860 at 1088 | cycles reached 3 (2 from non-multiples)
+    cycle min 1 max 32 len 8: 0.1975 of starts
+    cycle min 13 max 248 len 22: 0.7116 of starts
+    cycle min 11 max 44 len 3: 0.0909 of starts
+    scaled copy: best multiple of k is 1760 (= 11 x 160), share 0.0419, rank 46 among all v
+k=13 SEALED road 0.2522 at 1048 (cycle member) | non-cycle best 0.0430 at 1000 | non-multiple starts best 0.2522 at 1048 | cycles reached 10 (9 from non-multiples)
+    cycle min 1 max 16 len 5: 0.4769 of starts
+    cycle min 13 max 52 len 3: 0.0769 of starts
+    cycle min 131 max 5572 len 39: 0.2522 of starts
+    cycle min 211 max 3376 len 13: 0.0334 of starts
+    cycle min 259 max 2728 len 13: 0.0388 of starts
+    cycle min 227 max 2404 len 13: 0.0191 of starts
+    cycle min 287 max 2296 len 13: 0.0430 of starts
+    cycle min 251 max 2008 len 13: 0.0197 of starts
+    cycle min 283 max 1972 len 13: 0.0254 of starts
+    cycle min 319 max 1684 len 13: 0.0146 of starts
+    scaled copy: best multiple of k is 1040 (= 13 x 80), share 0.0355, rank 38 among all v
+k=17 SEALED road 0.1421 at 1280 | non-cycle best 0.1421 at 1280 | non-multiple starts best 0.1421 at 1280 | cycles reached 3 (2 from non-multiples)
+    cycle min 1 max 32 len 9: 0.3281 of starts
+    cycle min 23 max 560 len 49: 0.6130 of starts
+    cycle min 17 max 68 len 3: 0.0588 of starts
+    scaled copy: best multiple of k is 1360 (= 17 x 80), share 0.0272, rank 176 among all v
+k=19 SEALED road 0.1270 at 1084 | non-cycle best 0.1270 at 1084 | non-multiple starts best 0.1270 at 1084 | cycles reached 2 (1 from non-multiples)
+    cycle min 5 max 124 len 16: 0.9474 of starts
+    cycle min 19 max 76 len 3: 0.0526 of starts
+    scaled copy: best multiple of k is 1520 (= 19 x 80), share 0.0243, rank 147 among all v
+k=23 SEALED road 0.4783 at 1030 (cycle member) | non-cycle best 0.1563 at 1192 | non-multiple starts best 0.4783 at 1030 | cycles reached 4 (3 from non-multiples)
+    cycle min 41 max 4976 len 69: 0.4783 of starts
+    cycle min 5 max 80 len 7: 0.0644 of starts
+    cycle min 7 max 56 len 7: 0.4138 of starts
+    cycle min 23 max 92 len 3: 0.0435 of starts
+    scaled copy: best multiple of k is 1196 (= 23 x 52), share 0.0207, rank 159 among all v
+k=25 SEALED road 0.2139 at 1108 | non-cycle best 0.2139 at 1108 | non-multiple starts best 0.2139 at 1108 | cycles reached 8 (7 from non-multiples)
+    cycle min 7 max 436 len 24: 0.4240 of starts
+    cycle min 17 max 148 len 12: 0.3760 of starts
+    cycle min 5 max 40 len 4: 0.0283 of starts
+    cycle min 95 max 760 len 8: 0.0991 of starts
+    cycle min 25 max 100 len 3: 0.0400 of starts
+    cycle min 115 max 580 len 8: 0.0187 of starts
+    cycle min 935 max 41620 len 44: 0.0065 of starts
+    cycle min 1735 max 50980 len 44: 0.0075 of starts
+    scaled copy: best multiple of k is 1000 (= 25 x 40), share 0.0375, rank 91 among all v

@@ -1,0 +1,7 @@
+Collatz free turn, Nov 3 2026. Question: is one huge shared road a habit of the whole 3x+k family, or a quirk of 3x+1?
+Map T_k: n even -> n/2, n odd -> 3n+k (k odd, not divisible by 3). Starts n<=10^6.
+Road share of v = fraction of starts whose trajectory visits v. Road = max share over 1000 <= v < 10^7.
+P1 [D] k=1: road share >= 0.39, sitting on 27's path at or after 9232. credence 0.85
+P2 [X] of k = 5,7,11,13,17,19,23,25: at most 2 have a road >= 0.25. credence 0.5
+P3 [X] for k divisible by 5 (k=5,25), the scaled copy of 3x+1 among multiples of k shows up but does not set the max road. credence 0.6
+P4 [X] k with more distinct cycles reached have smaller roads (rank correlation negative). credence 0.55
