@@ -1,0 +1,25 @@
+conservation violations (v <= 30000, all N): 4
+
+drift, share(1e+09) / share(1e+06) over [5000,20000]:
+  0mod3  n= 5000 median 0.002  p1 0.002  p99 0.003  min 0.002  max 0.003
+  4mod6  n= 2500 median 1.005  p1 0.849  p99 1.163  min 0.695  max 1.311
+  odd    n= 5000 median 1.007  p1 0.732  p99 1.288  min 0.547  max 1.629
+  2mod6  n= 2501 median 1.008  p1 0.765  p99 1.236  min 0.687  max 1.473
+  most-drifting non-0mod3, low : [(17719, 0.547, 39), (11959, 0.575, 56), (15577, 0.577, 45), (12265, 0.581, 55), (17611, 0.585, 36)]
+  most-drifting non-0mod3, high: [(15710, 1.473, 79), (15883, 1.509, 98), (17789, 1.554, 107), (14243, 1.554, 101), (18259, 1.629, 68)]
+  among values with traffic >= 1000 at 1e6 (n=3428): ratio range 0.880 .. 1.167
+
+v * share at N=1e+09, [5000,20000], by class:
+  0mod3  median    0.000  p10    0.000  p90    0.000  max      0.00
+  4mod6  median   14.333  p10    3.425  p90   53.358  max   3628.57
+  odd    median    4.996  p10    1.233  p90   21.382  max    337.46
+  2mod6  median    7.297  p10    1.703  p90   28.258  max    506.51
+    9232 4mod6  v*share   3628.57  band median  14.333  x  253.2
+    6154 4mod6  v*share   2418.37  band median  14.333  x  168.7
+    7288 4mod6  v*share   2671.59  band median  14.333  x  186.4
+    5536 4mod6  v*share    160.97  band median  14.333  x   11.2
+   11072 2mod6  v*share    321.94  band median   7.297  x   44.1
+    7381 odd    v*share    214.00  band median   4.996  x   42.8
+    9841 odd    v*share    253.26  band median   4.996  x   50.7
+   13120 4mod6  v*share    117.81  band median  14.333  x    8.2
+  top v*share in window: [(9232, 3628.6), (7288, 2671.6), (6154, 2418.4), (19682, 506.5), (17494, 449.5), (14762, 428.0), (17860, 412.8), (13121, 337.5), (19817, 333.8), (18304, 327.1), (18812, 327.1), (11072, 321.9)]
