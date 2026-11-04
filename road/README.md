@@ -14,6 +14,9 @@ Files
   (~25 s, 2 GB; band_out.txt is 3.5 MB and not committed). Its 10^6 and 10^8 rows match road.py and scale.c.
 - band.py: conservation check, drift of every window value 10^6 -> 10^9, v * share by residue class.
   Output in band_analysis.txt.
+- sealed_means.txt: M1-M4, sealed in Code before means.py ran (sha256 d39a0c79...6d41774d).
+- means.py: mean and median v * share by class per octave at 10^9, and path values per start
+  per octave. Needs band_out.txt. Output in means_out.txt.
 - hubs.py: for given values, traffic at 10^6, smallest start through each, and where it sits
   relative to that start's peak. `python3 hubs.py 5536 7381 9841 13120 39364`. Output in hubs_out.txt.
 
@@ -54,5 +57,13 @@ Flow and bands (band.c / band.py, chat's follow-up, Nov 4 2026):
   3.4-53 for 4 mod 6, a factor of ~15 within a class.
 - Above the band at 10^9: 9232 x253, 7288 x186, 6154 x169, 9841 x51, 11072 x44, 7381 x43,
   5536 x11, 13120 x8.
-Open: what sets a tree's thickness within a class (the x15 spread), and whether the 4 mod 6 :
-2 mod 6 : odd band ratio (~2.0 : 1.46 : 1) has a clean derivation.
+
+Band ratios and level (chat's derivation + Code's level, scored in the ledger): from conservation,
+c2 = c4/2 and c_odd = 3 c4/8; the three balance equations are consistent but one-parameter (scale
+free), and without the dead 0 mod 3 third they don't balance at 1/v (11 c4/8 != c4). The level
+comes from the shortcut map's drift: 1.5 values visited per step, -0.2075 bits per step, ~7.23
+values per octave = (3 c4/8) ln 2, so c4 ~ 27.8. Measured means at 10^9 in [16384, 32768):
+c4 26.92, c2 13.42, odd 10.22; ratios 0.499 and 0.379; 7.01 values per octave. Octaves at and
+below 9232's are lumpy (the big roads dominate class means): [1024, 2048) gives 0.29 / 0.27.
+Open: what sets a tree's thickness within a class (the x15 spread), and why values per octave
+runs ~2-3% under the random-parity 7.23.

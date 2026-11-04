@@ -256,3 +256,15 @@ Standard map, starts 1..10^6, traffic(v) = starts whose path visits v. All of ch
 Tally: R 1/1, D 1/1, X 2/3.
 
 Open question answered (road/README.md): the runner-up hubs 5536, 7381 and 9841 are one road, not three. They sit 8, 5 and 2 steps after the peak of 447's climb, 39364, on a single descent, and traffic grows down it as starts board (25682 at 39364, 28885 at 5536). Still open: whether that ~2.9% road holds across scales like 9232's.
+
+## Band means on the standard map (chat + Code, Nov 4 2026; road/sealed_means.txt sha256 d39a0c79...6d41774d, sealed in Code before computing; code road/means.py)
+c = v * share(v) at N = 10^9, mean per residue class, non-0 mod 3 values. M1-M2 were derived in chat from the conservation rule; M3-M4 in Code from the shortcut map's drift. Scored in Code.
+
+| id | tag | prediction | result | outcome |
+|---|---|---|---|---|
+| M1 | D | mean c2 / mean c4 = 1/2 | 0.499 in [16384, 32768), 0.510 in [30000, 60000), 0.479 in [5000, 20000) | held away from the big roads. At [1024, 2048) it is 0.29: the roads below 9232 dominate class means there |
+| M2 | D | mean c_odd / mean c4 = 3/8 | 0.379, 0.379, 0.356 (same octaves) | held, same caveat. Medians give 0.50 and ~0.35 |
+| M3 | D | mean c4 ~ 27.8, c2 ~ 13.9, c_odd ~ 10.4 | 26.92, 13.42, 10.22 in [16384, 32768) | held to within 3-4% |
+| M4 | D | ~7.2 path values per start per octave | 7.01-7.10 above 16384; 9.88 at [1024, 2048) | held to ~2-3%, running slightly low; inflated near 1 |
+
+Tally: D 4/4. The 1/2 and 3/8 relations are consistent but leave the level free; the drift count fixes it.

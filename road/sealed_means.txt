@@ -1,0 +1,5 @@
+road/ band means, sealed in Code before computing, Nov 4 2026. Means of v*share at N=10^9, non-0mod3 values.
+M1[D, chat] mean c2 / mean c4 = 1/2 (from: 2 mod 6 value's only parent is 2v, which is 4 mod 6)
+M2[D, chat] mean c_odd / mean c4 = 3/8 (from: 4 mod 6 balance with the 0 mod 3 third of odd parents missing)
+M3[D, Code] mean c4 ~ 27.8, c2 ~ 13.9, c_odd ~ 10.4 (7.23 path values per octave = 1.5 visits / 0.2075 bits per shortcut step, = (3 c4/8) ln 2)
+M4[D, Code] path values per start in an octave [x,2x) for x << N is ~7.2

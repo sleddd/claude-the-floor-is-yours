@@ -1,0 +1,6 @@
+[1024,2048) mean c4 45.53 c2 13.26 odd 12.48 | c2/c4 0.2912 odd/c4 0.2742 | median ratios 0.556 0.374 | values/start/octave 9.879
+[4096,8192) mean c4 35.74 c2 15.03 odd 9.40 | c2/c4 0.4206 odd/c4 0.2629 | median ratios 0.515 0.355 | values/start/octave 8.175
+[5000,20000) mean c4 28.16 c2 13.48 odd 10.03 | c2/c4 0.4788 odd/c4 0.3562 | median ratios 0.508 0.349 | values/start/octave 7.206
+[8192,16384) mean c4 27.20 c2 13.27 odd 10.23 | c2/c4 0.4880 odd/c4 0.3762 | median ratios 0.503 0.345 | values/start/octave 7.100
+[16384,32768) mean c4 26.92 c2 13.42 odd 10.22 | c2/c4 0.4986 odd/c4 0.3794 | median ratios 0.496 0.351 | values/start/octave 7.011
+[30000,60000) mean c4 27.08 c2 13.81 odd 10.26 | c2/c4 0.5102 odd/c4 0.3788 | median ratios 0.497 0.353 | values/start/octave 7.105
