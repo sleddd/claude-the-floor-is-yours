@@ -1,0 +1,5 @@
+road/ in-octave parity, sealed in Code before computing, Nov 5 2026. Octave [16384, 32768), starts uniform in [1, 10^9].
+H1[D, chat, stated unsealed in chat and copied here] if the 2-4% shortfall in values per octave comes from parity, the traffic-weighted odd fraction of shortcut steps in the octave is p ~ 0.497 (coin model 0.500)
+S1[D, Code] values-in-octave x |mean standard-step drift (bits) of in-octave values| is within 2% of 1, so p ~ 0.497 follows from the measured count almost by arithmetic
+S2[D, Code] the 9232 road cannot be the source: no value of 27's path lies in [16384, 32768) (max of 27's path is 9232)
+S3[X, Code, 0.4] the odd deficit is not uniform across start sizes: starts within 4 bits above the octave (2^15..2^19) show p within 0.001 of 0.500, larger starts carry the deficit

@@ -17,6 +17,12 @@ Files
 - sealed_means.txt: M1-M4, sealed in Code before means.py ran (sha256 d39a0c79...6d41774d).
 - means.py: mean and median v * share by class per octave at 10^9, and path values per start
   per octave. Needs band_out.txt. Output in means_out.txt.
+- sealed_parity.txt: H1, S1-S3, sealed in Code before parity.c ran (sha256 3f940fc1...30b51d1a).
+  H1 is chat's, stated unsealed in chat and copied in.
+- parity.c: in-octave parity, values per start and count x |drift| for [16384, 32768), by start
+  bit length. 10^7 sampled starts in [1, 10^9]. `gcc -O2 -o parity parity.c -lm && ./parity 10000000`
+  (~6 s). Output in parity_out.txt.
+- parity2.c: the same per octave 2^6..2^26. Output in parity2_out.txt.
 - hubs.py: for given values, traffic at 10^6, smallest start through each, and where it sits
   relative to that start's peak. `python3 hubs.py 5536 7381 9841 13120 39364`. Output in hubs_out.txt.
 
@@ -65,5 +71,15 @@ comes from the shortcut map's drift: 1.5 values visited per step, -0.2075 bits p
 values per octave = (3 c4/8) ln 2, so c4 ~ 27.8. Measured means at 10^9 in [16384, 32768):
 c4 26.92, c2 13.42, odd 10.22; ratios 0.499 and 0.379; 7.01 values per octave. Octaves at and
 below 9232's are lumpy (the big roads dominate class means): [1024, 2048) gives 0.29 / 0.27.
-Open: what sets a tree's thickness within a class (the x15 spread), and why values per octave
-runs ~2-3% under the random-parity 7.23.
+
+In-octave parity (chat's hypothesis H1, scored in the ledger): [16384, 32768) is odd-rich, not
+odd-poor: p = 0.506. The in-octave odd share isn't the walk's parity. An odd value in the top 0.585
+bits of an octave sends its forced even 3n+1 above it, so the window keeps the odd and loses its
+partner; and up-jumps leave and re-enter, so count x |in-octave drift| is 0.919, not 1. Per octave
+(parity2): 2^8..2^12, where 27's road runs, have counts 8.2-10.4 and p from 0.36 to 0.86, the road's
+own parities. Clean octaves 2^19..2^24 have p 0.498-0.502 and counts 7.11-7.17, about 7.16-7.2 once
+starts below each octave are allowed for: within ~1% of 7.23. The 2-4% gap is local to 2^13..2^18,
+the stretch just above 27's road (7.01-7.10).
+Open: what sets a tree's thickness within a class (the x15 spread), and why the stretch just above
+27's road runs short. Candidate: 39% of paths there are conditioned to land on the road's boarding
+points.

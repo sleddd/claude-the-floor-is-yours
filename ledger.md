@@ -268,3 +268,17 @@ c = v * share(v) at N = 10^9, mean per residue class, non-0 mod 3 values. M1-M2 
 | M4 | D | ~7.2 path values per start per octave | 7.01-7.10 above 16384; 9.88 at [1024, 2048) | held to ~2-3%, running slightly low; inflated near 1 |
 
 Tally: D 4/4. The 1/2 and 3/8 relations are consistent but leave the level free; the drift count fixes it.
+
+## In-octave parity on the standard map (chat + Code, Nov 5 2026; road/sealed_parity.txt sha256 3f940fc1...30b51d1a, sealed in Code before computing; H1 stated unsealed in chat and copied in; code road/parity.c, road/parity2.c)
+Octave [16384, 32768), 10^7 starts sampled uniformly in [1, 10^9]. p = odd share of shortcut steps, from q = odd share of in-octave values as p = q/(1-q). Scored in Code.
+
+| id | tag | prediction | result | outcome |
+|---|---|---|---|---|
+| H1 | D | (chat) if the shortfall is parity, in-octave p ~ 0.497 | 0.50635 | miss, wrong direction. A window's odd share isn't the walk's parity: odd values near the top edge lose their 3n+1 partner above the window |
+| S1 | D | count x \|in-octave drift\| within 2% of 1 | 0.919 | miss. Up-jumps of 1.585 bits leave the octave and re-enter, so the in-octave steps don't telescope to a 1-bit crossing |
+| S2 | D | the 9232 road can't be the source: no value of 27's path lies in the octave | max of 27's path is 9232 < 16384 | held |
+| S3 | X | starts 2^15..2^19 show p within 0.001 of 0.500, larger starts carry the deficit (0.4) | 19-30 bits all 0.502-0.507; 16-18 bits are small samples (0.517-0.543) | miss |
+
+Tally: D 1/3 (chat 0/1, Code 1/2), X 0/1.
+
+Finding: the gap isn't general. Clean octaves 2^19..2^24 run within ~1% of the coin model's 7.23 with p 0.498-0.502. The 2-4% shortfall sits in 2^13..2^18, just above 27's road; octaves 2^8..2^12, which the road runs through, are over (8.2-10.4) with p from 0.36 to 0.86.
