@@ -282,3 +282,18 @@ Octave [16384, 32768), 10^7 starts sampled uniformly in [1, 10^9]. p = odd share
 Tally: D 1/3 (chat 0/1, Code 1/2), X 0/1.
 
 Finding: the gap isn't general. Clean octaves 2^19..2^24 run within ~1% of the coin model's 7.23 with p 0.498-0.502. The 2-4% shortfall sits in 2^13..2^18, just above 27's road; octaves 2^8..2^12, which the road runs through, are over (8.2-10.4) with p from 0.36 to 0.86.
+
+## Boarding split on the standard map (chat + Code, Nov 5 2026; road/sealed_board.txt sha256 38bdba06...eb124cd4f, sealed in Code before computing; H2 stated unsealed in chat and copied in; code road/board.c)
+10^7 starts uniform in [1, 10^9]. Road = 27's climb, 27..9232. Free: never touches it. High: first climb value is 9232 (forced approach 147712 -> 73856 -> 36928 -> 18464 -> 9232). Low: boards lower on the climb. Scored in Code.
+
+| id | tag | prediction | result | outcome |
+|---|---|---|---|---|
+| H2 | D | (chat) the 2^14 deficit belongs to high boarders and sits in their final steps | high boarders are 0.01% of starts; low boarders carry it (6.22 values at 2^14 vs 7.53 free) | miss. The forced approach is real, but almost nobody takes it |
+| C1 | X | high boarders under 10% of road-bound starts (0.6) | 0.02% | held, by a factor of 500. The 10% threshold was the same loose hedge as P4 |
+| C2 | D | high boarders' mean values in 2^14 below 4 (0.5) | 1.000 | held. Close to structural: the final pass touches only 18464 |
+| C3 | X | more than half the 2^14 shortfall carried by high boarders (0.45) | ~0.0006 of ~0.22 | miss |
+| C4 | X | free paths within 1% of 7.23 in 2^14 (0.5) | 7.527 (+4.1%) | miss |
+
+Tally: D 1/2 (chat 0/1, Code 1/1), X 1/3.
+
+Finding: the shortfall above 9232 comes from low boarders (mostly 94, 364, 82, 124) falling fast through 2^14..2^17, five octaves above anywhere they board, offset partly by free paths running long there.

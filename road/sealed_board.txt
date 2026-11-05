@@ -1,0 +1,8 @@
+road/ boarding split, sealed in Code before computing, Nov 5 2026. Starts uniform in [1, 10^9], octave 2^14 = [16384, 32768).
+Groups: free (never touches 27's path), high (first value of 27's path it touches is 9232, so it arrives 147712 -> 73856 -> 36928 -> 18464 -> 9232),
+low (first road value is below 9232, on 27's climb or descent).
+H2[D, chat, stated unsealed in chat and copied here] the 2^14 deficit belongs to high boarders and sits in their final few steps (forced halving approach)
+C1[X, Code, 0.6] high boarders are under 10% of road-bound starts
+C2[D, Code, 0.5] high boarders' mean values in 2^14 is below 4 (their final pass touches only 18464)
+C3[X, Code, 0.45] more than half of the 2^14 shortfall against 7.23 is carried by high boarders
+C4[X, Code, 0.5] free paths' mean values in 2^14 is within 1% of 7.23

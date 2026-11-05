@@ -23,6 +23,13 @@ Files
   bit length. 10^7 sampled starts in [1, 10^9]. `gcc -O2 -o parity parity.c -lm && ./parity 10000000`
   (~6 s). Output in parity_out.txt.
 - parity2.c: the same per octave 2^6..2^26. Output in parity2_out.txt.
+- sealed_board.txt: H2, C1-C4, sealed in Code before board.c ran (sha256 38bdba06...eb124cd4f).
+  H2 is chat's, stated unsealed in chat and copied in.
+- board.c: values per start in octaves 2^12..2^21, split by how a path meets 27's climb (27..9232):
+  free (never), high (first climb value is 9232), low (boards lower on the climb). The part after
+  boarding is 27's fixed path, added per boarding value. `gcc -O2 -o board board.c && ./board 10000000`
+  (~8 s). Output in board_out.txt. A first version used all of 27's path as the road, so everyone
+  "boarded" at 40 or 16; fixed before scoring.
 - hubs.py: for given values, traffic at 10^6, smallest start through each, and where it sits
   relative to that start's peak. `python3 hubs.py 5536 7381 9841 13120 39364`. Output in hubs_out.txt.
 
@@ -80,6 +87,14 @@ partner; and up-jumps leave and re-enter, so count x |in-octave drift| is 0.919,
 own parities. Clean octaves 2^19..2^24 have p 0.498-0.502 and counts 7.11-7.17, about 7.16-7.2 once
 starts below each octave are allowed for: within ~1% of 7.23. The 2-4% gap is local to 2^13..2^18,
 the stretch just above 27's road (7.01-7.10).
-Open: what sets a tree's thickness within a class (the x15 spread), and why the stretch just above
-27's road runs short. Candidate: 39% of paths there are conditioned to land on the road's boarding
-points.
+
+Boarding split (chat's H2, scored in the ledger): high boarders, which arrive by the forced chain
+147712 -> 73856 -> 36928 -> 18464 -> 9232 (36928's odd parent 12309 is 0 mod 3), are 0.02% of
+road-bound starts and touch 2^14 exactly once. They carry none of the shortfall. Low boarders, 39.3%
+of starts, mostly at 94, 364, 82, 124 (24%, 20%, 14%, 9% of road-bound), are short well upstream of
+boarding: 6.22 / 6.19 / 6.52 / 6.91 values per start at 2^14..2^17, back to 7.09-7.20 by 2^18..2^21.
+Free paths run long there (7.53 / 7.65 / 7.46 / 7.10). The mix gives 7.01 at 2^14. Paths bound for
+9232's tree fall faster through the five octaves above it, long before they reach it: by conservation,
+9232's watershed is thin in those octaves for its size.
+Open: what sets a tree's thickness within a class (the x15 spread); why 9232's watershed is thin in
+2^14..2^17 and why free paths run long there.
