@@ -1,0 +1,7 @@
+Free turn, Nov 4 2026. Question: is 9232's crowd an accident of size, or do the rules rig which numbers get crowded?
+Traffic(v) = number of starts s <= 10^6 whose trajectory passes through v.
+P1 [R] traffic(9232)/10^6 in [0.39, 0.41]. cred 0.9
+P2 [X] 9232 is the single highest-traffic value in the window [5000, 20000]. cred 0.75
+P3 [X] best value in that window that is NOT on 27's trajectory has share < 5%. cred 0.5
+P4 [D] values = 0 mod 3 (no odd predecessor) carry less traffic than same-size values = 4 mod 6 (two predecessors): median ratio < 0.7 in window [5000,20000]. cred 0.7
+P5 [X] 27's trajectory is unusually rich in branch points (v = 4 mod 6 among evens): its rate exceeds the average rate over all starts' trajectories by >5 points. cred 0.35

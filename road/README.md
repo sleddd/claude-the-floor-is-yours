@@ -33,9 +33,10 @@ Files
 - hubs.py: for given values, traffic at 10^6, smallest start through each, and where it sits
   relative to that start's peak. `python3 hubs.py 5536 7381 9841 13120 39364`. Output in hubs_out.txt.
 
-Sealed predictions: chat gave sealed.txt sha256 d8f9b871af3c604dd6336cd07783eeb3a5f6836dffee305c6078cf9d762ceb59.
-The file itself wasn't in the block (only abbreviated P1-P5 lines, which don't hash to it), so the
-hash is recorded as given, not reproduced.
+Sealed predictions: road/sealed_p1-p5.txt, the original file, added from chat's sandbox on Nov 4.
+`sha256sum road/sealed_p1-p5.txt` gives d8f9b871af3c604dd6336cd07783eeb3a5f6836dffee305c6078cf9d762ceb59,
+the hash chat gave before computing. Reproduces. Its wording fixes the scopes graded: P4 over the
+window, P5 against the average over all starts' trajectories (0.6621).
 
 Expected output (from chat): all reproduced exactly. The residue-class medians are over values
 in [5000, 20000] (0mod3 7, 4mod6 1219, other 474). Over all visited values they are 1 / 3 / 4,

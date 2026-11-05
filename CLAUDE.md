@@ -38,6 +38,11 @@ Open questions live next to the results they came from, not in this file.
   ledger where it's first used.
 - Confidence can be noted, but it doesn't separate hits from misses; source does.
 - Score in ledger.md. Never rewrite an old outcome; only append corrections.
+- Before sealing, ask whether the claim can lose. Two failure shapes seen on Nov 4:
+  a free hit (ordering or structure guarantees it, e.g. upstream values can't outrank
+  what they feed) and a hedge threshold far from any plausible value (0.7 bound on a
+  0.006 result, <10% bound on 0.02%). Also: any count inside a window, check edge
+  effects first; up-steps jump out and back in and tilt the measure.
 
 ## Environment
 - Lean: handled by the hook. Manual fallback is the release archive from

@@ -242,7 +242,7 @@ a(1)=0; a(n+1) = n - m for the last earlier index m with a(m) = a(n), else 0. P1
 
 Tally: R 1/1, D 1/2, X 5/7.
 
-## The 9232 road on the standard map (chat, Nov 4 2026; sealed.txt sha256 d8f9b871...762ceb59, file not in the block so not reproduced; code road/)
+## The 9232 road on the standard map (chat, Nov 4 2026; road/sealed_p1-p5.txt sha256 d8f9b871...762ceb59, hash reproduced; code road/)
 Standard map, starts 1..10^6, traffic(v) = starts whose path visits v. All of chat's expected outputs reproduced. The residue-class medians in them are over values in [5000, 20000]; the 0.6621 average is traffic-weighted over all visited even values. Graded in Code; chat did not score.
 
 | id | tag | prediction | result | outcome |
