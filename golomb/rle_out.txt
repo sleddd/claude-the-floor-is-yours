@@ -1,0 +1,24 @@
+n=1e3 a=86 a/n^(phi-1)=1.203362532 e=+1.314e-03 e*ln n=+0.009077
+n=1e4 a=356 a/n^(phi-1)=1.200366988 e=-1.179e-03 e*ln n=-0.010855
+n=1e5 a=1479 a/n^(phi-1)=1.201706002 e=-6.434e-05 e*ln n=-0.000741
+n=1e6 a=6137 a/n^(phi-1)=1.201578616 e=-1.703e-04 e*ln n=-0.002353
+n=1e7 a=25474 a/n^(phi-1)=1.201874783 e=+7.610e-05 e*ln n=+0.001227
+n=1e8 a=105729 a/n^(phi-1)=1.202049119 e=+2.212e-04 e*ln n=+0.004074
+n=1e9 a=438744 a/n^(phi-1)=1.202002280 e=+1.822e-04 e*ln n=+0.003776
+n=1e10 a=1820598 a/n^(phi-1)=1.201916158 e=+1.105e-04 e*ln n=+0.002545
+n=1e11 a=7554625 a/n^(phi-1)=1.201818916 e=+2.961e-05 e*ln n=+0.000750
+n=1e12 a=31347587 a/n^(phi-1)=1.201700526 e=-6.890e-05 e*ln n=-0.001904
+n=1e13 a=130080604 a/n^(phi-1)=1.201629803 e=-1.277e-04 e*ln n=-0.003824
+n=1e14 a=539816163 a/n^(phi-1)=1.201628005 e=-1.292e-04 e*ln n=-0.004166
+last full plateau ends at 999999999319884 (ln 34.5388); midpoint 9995215 e*ln n = +0.00093
+flips: 28
+zone 1: flips 2, ln 2.3026..2.6027, centre 2.4526, max|e ln m| on the half-wave before it 0.050732
+zone 2: flips 11, ln 4.4659..5.8245, centre 5.1452, max|e ln m| on the half-wave before it 0.019493
+zone 3: flips 11, ln 9.2399..9.4913, centre 9.3656, max|e ln m| on the half-wave before it 0.008361
+zone 4: flips 3, ln 15.6763..15.6802, centre 15.6782, max|e ln m| on the half-wave before it 0.004780
+zone 5: flips 1, ln 25.9931..25.9931, centre 25.9931, max|e ln m| on the half-wave before it 0.004260
+max|e ln m| after the last zone 0.004196
+
+real	3m56.965s
+user	3m55.100s
+sys	0m0.112s

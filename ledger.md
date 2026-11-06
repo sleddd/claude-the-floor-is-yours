@@ -311,3 +311,19 @@ e(n) = a(n)/(C n^(phi-1)) - 1, C = phi^(2-phi) = 1.201783. Chat's check values a
 Tally: R 0/1, D 1/1, X 2/2. Three holds, none of which could plausibly lose.
 
 Finding: at plateau midpoints e is a slow wave, crossing near ln n ~ 5.2, 9.35, 15.68 (ratios 1.80, 1.68). Open question in golomb/README.md.
+
+Correction (Nov 6): zone 2 has 11 midpoint flips, not 13 (golomb/README.md and the Nov 6 seal's context line said 13). Grades above unchanged.
+
+## Golomb to 10^15 by run length (Code, Nov 6 2026; golomb/sealed_rle.txt sha256 d2fc8c8e...486fed3, sealed and committed before rle.c was written; code golomb/rle.c)
+Constants and thresholds in the seal were computed in the sealing step, not typed from memory. Zones: midpoint sign flips within ln 2 of each other; centre = mean ln of first and last flip. Scored in Code.
+
+| id | tag | prediction | result | outcome |
+|---|---|---|---|---|
+| Q1 | X | fifth zone centre in [25.0, 26.0], ratio 1.595-1.658 (0.45) | 25.9931, ratio 1.6579 | held, by 0.007 in ln n. Nearly lost at the top edge: the ratio barely moved toward phi (gap 0.056 -> 0.040) |
+| Q2 | X | exactly one zone in (16.5, 34.539] (0.6) | one zone, no other flips | held |
+| Q3 | R | half-wave max of \|e ln m\| between zones 4-5 within a factor 2 of the one between zones 3-4 (0.5); recalls an order n^(phi-1)/ln n error term | 0.004260 / 0.004780 = 0.891 | held. The decay before it ran 0.38, 0.43, 0.57 per half-wave, so a ratio under 0.5 was live |
+| Q4 | X | zone 5 is one clean flip (0.35) | 1 flip | held |
+
+Tally: R 1/1, X 3/3. Each bar had a live way to lose; Q1 came within 0.007 of it.
+
+Finding: one crossing between 10^7 and 10^15, at n ~ 1.9·10^11, ratios now 2.098, 1.820, 1.674, 1.658. Whether the ratio tends to phi or to something near 1.65 stays open; the next zone (ln n 42.1 vs 43.1) decides. Open questions in golomb/README.md.
