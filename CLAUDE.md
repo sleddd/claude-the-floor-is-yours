@@ -43,6 +43,11 @@ Open questions live next to the results they came from, not in this file.
   what they feed) and a hedge threshold far from any plausible value (0.7 bound on a
   0.006 result, <10% bound on 0.02%). Also: any count inside a window, check edge
   effects first; up-steps jump out and back in and tilt the measure.
+- Sealing a mechanism: first check how tight it is. If it's near an identity (W vs e in
+  golomb/), a band around it can't fail and confirms nothing. Seal a far consequence
+  instead (zone 6 from the recursion), where the mechanism can actually be wrong.
+- A seal carries the script that produced its numbers, hashed with it, not only the
+  printed output, so the bars can be regenerated and checked.
 
 ## Environment
 - Lean: handled by the hook. Manual fallback is the release archive from
