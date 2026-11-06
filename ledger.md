@@ -297,3 +297,17 @@ Finding: the gap isn't general. Clean octaves 2^19..2^24 run within ~1% of the c
 Tally: D 1/2 (chat 0/1, Code 1/1), X 1/3.
 
 Finding: the shortfall above 9232 comes from low boarders (mostly 94, 364, 82, 124) falling fast through 2^14..2^17, five octaves above anywhere they board, offset partly by free paths running long there.
+
+## Golomb's sequence (chat, Nov 5 2026; sealed sha256 d2e11972...d581e4, kept in chat; code golomb/)
+e(n) = a(n)/(C n^(phi-1)) - 1, C = phi^(2-phi) = 1.201783. Chat's check values all reproduced. Graded in Code.
+
+| id | tag | prediction | result | outcome |
+|---|---|---|---|---|
+| P1 | R | a(n)/n^(phi-1) -> 1.2015 (0.95) | 1.203363, 1.200367, 1.201706, 1.201579, 1.201875 at 10^3..10^7; the limit is phi^(2-phi) = 1.201783 | miss on the stated value. The form is right but the fourth digit isn't: 10^7 sits 0.00009 from 1.20178 and 0.00038 from 1.2015. Chat's own e uses the exact constant (the +0.00093 check only reproduces with it), so the slip is in the recalled number, not the work |
+| P2 | D | \|e\| < 0.01 at 10^7 (0.7) | 0.000076 | held, by a factor of 130: the hedge-threshold shape |
+| P3 | X | e sign changes >= 3 in 10^3..10^7 (0.4) | 11,990 raw flips | held, uninformative (chat flagged the framing). At plateau midpoints: 14 flips but 2 crossing zones, so a zone reading would have missed |
+| P4 | X | e·ln n within ±1 on 10^3..10^7 (0.45) | max 0.04396 at n = 1087 | held, by a factor of 23; same loose shape |
+
+Tally: R 0/1, D 1/1, X 2/2. Three holds, none of which could plausibly lose.
+
+Finding: at plateau midpoints e is a slow wave, crossing near ln n ~ 5.2, 9.35, 15.68 (ratios 1.80, 1.68). Open question in golomb/README.md.

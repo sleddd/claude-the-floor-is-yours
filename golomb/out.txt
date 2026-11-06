@@ -1,0 +1,38 @@
+C = phi^(2-phi) = 1.201783
+n=1000      a=86     a/n^(phi-1)=1.203363 e=+0.001314 e*ln n=+0.00908
+n=10000     a=356    a/n^(phi-1)=1.200367 e=-0.001179 e*ln n=-0.01085
+n=100000    a=1479   a/n^(phi-1)=1.201706 e=-0.000064 e*ln n=-0.00074
+n=1000000   a=6137   a/n^(phi-1)=1.201579 e=-0.000170 e*ln n=-0.00235
+n=10000000  a=25474  a/n^(phi-1)=1.201875 e=+0.000076 e*ln n=+0.00123
+raw sign flips on [1e3,1e7]: 11990
+max |e ln n| on [1e3,1e7]: 0.04396 at n=1087
+plateau-midpoint sign changes (whole run inside [1,1e7]):
+  between mid 7.0 (e ln n -0.00029) and mid 10.0 (e ln n +0.00589), ln n ~ 2.30
+  between mid 10.0 (e ln n +0.00589) and mid 13.5 (e ln n -0.00156), ln n ~ 2.60
+  between mid 80.0 (e ln n -0.00734) and mid 87.0 (e ln n +0.00245), ln n ~ 4.47
+  between mid 94.5 (e ln n +0.00335) and mid 102.5 (e ln n -0.00322), ln n ~ 4.63
+  between mid 110.5 (e ln n -0.00293) and mid 118.5 (e ln n +0.00301), ln n ~ 4.77
+  between mid 127.0 (e ln n +0.00182) and mid 136.0 (e ln n -0.00549), ln n ~ 4.91
+  between mid 154.0 (e ln n -0.00492) and mid 163.0 (e ln n +0.00146), ln n ~ 5.09
+  between mid 172.5 (e ln n +0.00190) and mid 182.5 (e ln n -0.00290), ln n ~ 5.21
+  between mid 202.5 (e ln n -0.00153) and mid 212.5 (e ln n +0.00371), ln n ~ 5.36
+  between mid 223.0 (e ln n +0.00399) and mid 234.0 (e ln n -0.00018), ln n ~ 5.46
+  between mid 245.0 (e ln n -0.00139) and mid 256.0 (e ln n +0.00002), ln n ~ 5.55
+  between mid 278.5 (e ln n +0.00329) and mid 290.5 (e ln n -0.00097), ln n ~ 5.67
+  between mid 326.5 (e ln n -0.00031) and mid 338.5 (e ln n +0.00367), ln n ~ 5.82
+  between mid 10254.5 (e ln n +0.00002) and mid 10300.5 (e ln n -0.00005), ln n ~ 9.24
+  between mid 10438.5 (e ln n -0.00000) and mid 10484.5 (e ln n +0.00010), ln n ~ 9.26
+  between mid 10810.0 (e ln n +0.00009) and mid 10857.0 (e ln n -0.00002), ln n ~ 9.29
+  between mid 11045.0 (e ln n -0.00002) and mid 11092.0 (e ln n +0.00008), ln n ~ 9.31
+  between mid 11424.5 (e ln n +0.00007) and mid 11472.5 (e ln n -0.00002), ln n ~ 9.35
+  between mid 11664.5 (e ln n -0.00003) and mid 11712.5 (e ln n +0.00006), ln n ~ 9.37
+  between mid 12052.0 (e ln n +0.00001) and mid 12101.0 (e ln n -0.00009), ln n ~ 9.40
+  between mid 12346.0 (e ln n -0.00005) and mid 12395.0 (e ln n +0.00006), ln n ~ 9.43
+  between mid 12592.5 (e ln n +0.00015) and mid 12642.5 (e ln n -0.00002), ln n ~ 9.44
+  between mid 13092.5 (e ln n -0.00009) and mid 13142.5 (e ln n +0.00007), ln n ~ 9.48
+  between mid 13193.0 (e ln n +0.00004) and mid 13244.0 (e ln n -0.00018), ln n ~ 9.49
+  between mid 6428415.5 (e ln n -0.00000) and mid 6428951.5 (e ln n +0.00000), ln n ~ 15.68
+  between mid 6430025.0 (e ln n +0.00000) and mid 6430562.0 (e ln n -0.00000), ln n ~ 15.68
+  between mid 6453116.0 (e ln n -0.00000) and mid 6453653.0 (e ln n +0.00000), ln n ~ 15.68
+midpoint sign changes with both midpoints >= 1e3: 14
+midpoint nearest 9995215: 9995215.0, e*ln n = +0.00093
