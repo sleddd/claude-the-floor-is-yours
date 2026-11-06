@@ -1,0 +1,37 @@
+Golomb zone 6 from W (Code, Nov 6 2026). Sealed before any computing past rle_out.txt (positions <= 10^15).
+Chat's follow-up seal (S1-S3) is sha256 3649d9a7...772bde79, kept in chat; this file seals only the zone-6 claims.
+
+Every number below is printed by the script in this file's tail, run before sealing (python3 float64).
+Method to be used: e at value m's plateau midpoint mid_m = P(m-1) + (a(m)+1)/2, P = partial sums of a,
+evaluated exactly for every m <= 7e11 by walking a's runs (a(j) = v on v's run). That reaches ln n = 43.83.
+Zones and centres exactly as in sealed_rle.txt (flips within ln 2 share a zone; centre = mean ln of first
+and last flip).
+
+Derivation for H4 (Code, before computing): with u = ln j, W(m) = int c e^(u phi) e(u) du
+  = (c/phi) m^phi [e - e'/phi + e''/phi^2 - ...], so if e is linear through a crossing at u = z_k, W crosses
+  at ln m = z_k + 1/phi. Value m maps to position ln n = phi (ln m - ln c), and phi ln c = ln(phi)/phi, so
+  z_{k+1} = phi z_k + 1 - ln(phi)/phi = phi z_k + 0.70259.
+
+H1 [X] pure ratio phi: zone 6 centre in [41.745, 42.370) (point 42.058). (0.15)
+H3 [X] affine, b held at last step's 0.6252: centre in [42.370, 42.889) (point 42.683). (0.40)
+H2 [X] ratio held at 1.65791: centre in [42.889, 43.407] (point 43.094). (0.15)
+   (Bands split halfway between the points; at most one of H1-H3 holds.)
+H4 [D] derived lag 1/phi: centre within 0.15 of 42.760, i.e. [42.610, 42.910]. (0.40)
+   Loses to anything like H1 or H2, and to the recent lag 0.508 (-> 42.58).
+Z1 [X] exactly one zone in (34.539, 43.83]. (0.65)
+
+Script output at sealing:
+phi 1.618033988750 ex 0.618033988750 c 1.201783329307 ln c 0.183807 ln phi/phi 0.297405
+b derived = 1 - ln(phi)/phi = 0.70259
+observed b_k = z_{k+1}-phi z_k: [1.1768, 1.0405, 0.5243, 0.6252]
+observed lag d_k = z_{k+1}/phi + ln c - z_k: [0.9111, 0.8269, 0.5079, 0.5702]
+H1 pure ratio phi: 42.0577
+H2 ratio held at 1.65791: 43.0943
+H3 affine, b from last step 0.6252: 42.6830
+H4 derived lag 1/phi: 42.7603
+bands: H1 [41.745, 42.370)  H3 [42.370, 42.889)  H2 [42.889, 43.407]
+H4 band +-0.15: [42.610, 42.910]
+S band z=9.37: m=393.38 [302.6, 511.4]
+S band z=15.68: m=19430.12 [14946.2, 25259.2]
+S band z=5.15: m=28.98 [22.3, 37.7]
+value index at z6~42.7: 3.474e+11; z at j=7e11: 43.833
