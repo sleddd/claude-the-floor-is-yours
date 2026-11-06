@@ -1,0 +1,26 @@
+Golomb to 10^15 by run length (Code, Nov 6 2026). Sealed before any computing past 10^7.
+Seen beforehand: out.txt only (n <= 10^7). Nothing about 10^7 < n has been computed or looked up.
+
+Constants, computed in the sealing step (python3, float64), not typed from memory:
+  phi = 1.618033988749895, C = phi^(2-phi) = 1.2017833293069158, ln phi = 0.4812118
+Definitions:
+  Value k fills positions S(k-1)+1 .. S(k), S(k) = a(1)+...+a(k). Plateau midpoint m_k = (S(k-1)+1+S(k))/2.
+  e_k = k/(C m_k^(phi-1)) - 1, in long double. A flip is a sign change between consecutive plateaus;
+  its position is ln m of the right-hand plateau. Flips within ln 2 of the previous flip share a zone.
+  Zone centre = mean of the ln positions of its first and last flip.
+  Range: every plateau with S(k) <= 10^15 (ln 10^15 = 34.539).
+From out.txt under these rules: zone centres 2.453, 5.145, 9.366, 15.678; ratios 2.098, 1.820, 1.674.
+  Distance of the ratios from phi: 0.48, 0.20, 0.056, shrinking.
+  15.678*phi = 25.368. 15.678*1.674 = 26.24 (ratio stuck at its last value).
+
+Q1 [X] The fifth zone's centre lies in [25.0, 26.0] (ratio 1.595-1.658). Loses if the ratio stalls near
+   1.67 (26.2+), overshoots well below phi, or the zone isn't there. (0.45)
+Q2 [X] Exactly one zone in (16.5, 34.539]: no extra crossing on the way and none after it in range.
+   Loses on any secondary crossing, or a zone that splits under the ln 2 rule. (0.6)
+Q3 [R] Recalls (from memory, not checked) that Golomb's error is of order n^(phi-1)/ln n with both signs,
+   so e*ln n neither dies away nor grows. Claim: max |e_k ln m_k| over the half-wave between zones 4 and 5
+   is within a factor 2 of the max over the half-wave between zones 3 and 4 (ratio in [0.5, 2]).
+   Neither max has been seen. (0.5)
+Q4 [X] Zone 5 is one clean flip (flip counts so far 2, 13, 11, 3). (0.35)
+
+Not sealed, as a free hit: the sign of e just past zone 4 (already seen positive at 9995215).
