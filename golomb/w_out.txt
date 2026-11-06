@@ -1,0 +1,16 @@
+c = 1.201783329307, zeta(-ex) = -0.169143599
+W zero crossings, m <= 60000: 13 14 25 27 402 405 413 421 424 19385 19389 19431
+S2 k=1: ln n = 3.7842, a(n) = 12, e(n) = -3.696e-02, W(a(n)) = -1.0788e-02 -> SAME
+S2 k=2: ln n = 7.2549, a(n) = 107, e(n) = +5.271e-03, W(a(n)) = -1.6842e+00 -> opposite
+S2 k=3: ln n = 12.5219, a(n) = 2759, e(n) = -1.412e-04, W(a(n)) = +1.2946e+02 -> opposite
+S2 k=4: ln n = 20.8356, a(n) = 470300, e(n) = +1.796e-04, W(a(n)) = -3.2568e+05 -> opposite
+S2 k=5: ln n = 34.3659, a(n) = 2013196498, e(n) = -1.112e-04, W(a(n)) = +1.5138e+11 -> opposite
+flip at m = 355844024225: v = 16553335, run start 355844021823, P(run start - 1) = 3640569284588195080
+walked m <= 700000000000; last midpoint ln n = 43.8334
+flips: 29
+zone 1: flips 2, ln 2.3026..2.6027, centre 2.4526, value index m 5..6
+zone 2: flips 11, ln 4.4659..5.8245, centre 5.1452, value index m 19..44
+zone 3: flips 11, ln 9.2399..9.4913, centre 9.3656, value index m 363..424
+zone 4: flips 3, ln 15.6763..15.6802, centre 15.6782, value index m 19386..19432
+zone 5: flips 1, ln 25.9931..25.9931, centre 25.9931, value index m 11392036..11392036
+zone 6: flips 1, ln 42.7387..42.7387, centre 42.7387, value index m 355844024225..355844024225

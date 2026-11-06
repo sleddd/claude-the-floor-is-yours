@@ -327,3 +327,21 @@ Constants and thresholds in the seal were computed in the sealing step, not type
 Tally: R 1/1, X 3/3. Each bar had a live way to lose; Q1 came within 0.007 of it.
 
 Finding: one crossing between 10^7 and 10^15, at n ~ 1.9·10^11, ratios now 2.098, 1.820, 1.674, 1.658. Whether the ratio tends to phi or to something near 1.65 stays open; the next zone (ln n 42.1 vs 43.1) decides. Open questions in golomb/README.md.
+
+## Why the crossings lag: W and zone 6 (chat + Code, Nov 6 2026; chat's S1-S3 sealed sha256 3649d9a7...772bde79, kept in chat; golomb/sealed_w.txt sha256 53564155...6d87736, sealed and committed before w.c was written; code golomb/w.c, golomb/check6.py)
+W(m) = sum_{j<=m}(a(j) - c j^(phi-1)). Chat's W crossings to 60000 reproduced exactly (13 14 25 27 402 405 413 421 424 19385 19389 19431). S1-S3 from chat, H1-H4 and Z1 sealed in Code. Scored in Code.
+
+| id | tag | prediction | result | outcome |
+|---|---|---|---|---|
+| S1 | D | (chat) W crosses in [m/1.3, 1.3m], m = c e^(z(phi-1)), z = 9.37, 15.68 (0.6) | 402-424 in [302.6, 511.4]; 19385-19431 in [14946, 25259] | held. But the sign of e at m's plateau is minus the sign of W(m) up to small corrections, so W crosses where e's flips are, at value indices 363-424 and 19386-19432. The band was 4x to 100x wider than that could miss by |
+| S2 | D | (chat) sign e(n) opposite to sign W(a(n)) at zone-to-zone midpoints (0.65) | opposite at k = 2..5; same at k = 1 (n = 43, e = -0.037, W(12) = -0.011) | miss as stated, 4 of 5. At n = 43, W is smaller than the half-run and constant corrections; from k = 2 on, W dwarfs them |
+| S3 | X | (chat) the same band holds for z = 5.15 (0.45) | 25, 27 in [22.3, 37.7] | held; same identity |
+| H1 | X | (chat's hypothesis, Code's confidence) pure ratio phi: zone 6 centre in [41.745, 42.370) (0.15) | 42.7387 | miss |
+| H3 | X | (chat's) affine, b = 0.6252: centre in [42.370, 42.889) (0.40) | 42.7387 (point 42.683) | held |
+| H2 | X | (chat's) ratio held at 1.65791: centre in [42.889, 43.407] (0.15) | 42.7387 | miss |
+| H4 | D | (Code) lag 1/phi: centre within 0.15 of 42.760 (0.40) | 42.7387, off by 0.021 | held |
+| Z1 | X | exactly one zone in (34.539, 43.83] (0.65) | one, a single flip | held |
+
+Tally: chat D 1/2, X 1/1; Code D 1/1, X 2/4.
+
+Finding: zone 6 is at ln n = 42.7387 (n ~ 3.6·10^18), computed in 27 s from runs already inside the 10^15 data and confirmed at 50 digits. Ratios 1.674, 1.658, 1.644: the ratio tends to phi as phi + b/z, with b heading to 1 - ln(phi)/phi = 0.703 and the lag to 1/phi (0.508, 0.570, 0.605). Open questions in golomb/README.md.
