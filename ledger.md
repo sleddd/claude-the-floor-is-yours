@@ -312,3 +312,15 @@ Standard map, starts 1..10^6. Side root r of a value on 27's climb: its predeces
 Tally: R 2/2 (one free), D 1/1, X 2/2.
 
 Finding: the branches are ordinary on the median, the excess isn't. Every root at its baseline gives a 28.7% road; 728 alone (3.66x) accounts for 5.7 of the 10.7 missing points. Open (road/README.md): what's under 728.
+
+## Under 728 (chat free turn, Nov 12 2026; road/sealed2.txt sha256 0530a8e1...6f4cab44, hash reproduced; code road/inverse728.py)
+Follow-up to the side-branch entry above. Graded as sealed, on the mod-27 baseline; chat did not score. All of chat's expected outputs reproduced. Two notes on them: the walk numbers keep 27's climb values in the baseline window, which sealed.txt's baseline leaves out (path-out values in road/inverse728_out.txt; outcomes unchanged); and chat found after sealing that mod 27 mixes parities, so even nodes fed by a small odd neighbor score ~24x.
+
+| id | tag | prediction | result | outcome |
+|---|---|---|---|---|
+| Q1 | X | some node within 10 inverse steps of 728 has ratio above 3 (0.60) | 1456 24.33, 970 26.52, 646 26.23, 430 24.37, 286 4.73, 572 3.45 | held, mostly on the parity confound: every hit is even. Parity-matched (mod 54) it still holds, narrowly: 572 at depth 10 (3.39), and 1456 (3.66) with path values out |
+| Q2 | X | ratio stays above 2 for 5+ consecutive steps down the heaviest walk (0.50) | 1456 24.33, then 485 1.9988 | miss. Longest run is 1 (3 with path values out; 3 parity-matched, ending at 323) |
+
+Tally: X 1/2.
+
+Parity-matched rerun of the side-branch test (mod 54): median 1.07, 4 of 35 above 2, 728 at 4.93 (baseline 16026), counterfactual road 0.3149. The side-branch P1 and P4 outcomes stand under it. Finding: 95 (1011111) climbs five odd steps to 1456 and carries 53255 of 728's 78978 starts.

@@ -30,6 +30,12 @@ Files
 - side.c: A(w) for w < 32768 at N = 10^6, side root and baseline for each value of 27's climb,
   boarding counts. `gcc -O2 -o side side.c && ./side` (<1 s). Output in side_out.txt; `./side 0`
   (sealed wording read literally) in side_out_literal.txt.
+- sealed2.txt: Q1-Q2 of the 728 follow-up, sealed in chat before computing (sha256
+  0530a8e1...6f4cab44, reproduced in Code).
+- inverse728.py: heaviest-predecessor walk below 728, ratios over 728's inverse tree to depth 10,
+  mod-27 and mod-54 baselines with 27's climb kept in or left out of the window, and the
+  parity-matched rerun of the side-branch test. `python3 inverse728.py` (~10 s). Output in
+  inverse728_out.txt.
 - board.c: values per start in octaves 2^12..2^21, split by how a path meets 27's climb (27..9232):
   free (never), high (first climb value is 9232), low (boards lower on the climb). The part after
   boarding is 27's fixed path, added per boarding value. `gcc -O2 -o board board.c && ./board 10000000`
@@ -114,4 +120,15 @@ would hold 28.7% of starts, not 39.4%; of that 10.7-point excess, 728 (root of 3
 baseline) supplies 5.7 points by itself. Baseline convention: chat's run floors r/1.5 and leaves
 r out of its own window; read literally (exact bounds, r kept) the median is 1.00 and 2 of 35
 exceed 2. 728's baseline is 21578.5 either way.
-Open: what's under 728.
+What's under 728 (chat's addendum, Nov 12): mostly 95. The heaviest walk down is 728 <- 1456 <- 485
+<- 970 <- 323 <- 646 <- 215 <- 430 <- 143 <- 286 <- 95; 95 (binary 1011111) climbs five odd steps
+95, 143, 215, 323, 485 to 1456, halves to 728 and boards at 364. A(95) = 53255, two thirds of 728's
+78978. The mod-27 baseline mixes parities: an even node fed by a small odd neighbor scores ~24-50x
+against it, so the big ratios on the walk are all even nodes. Matched on parity (mod 54) the walk
+reads 2-4.9 down to 970 and drops below 2 at 323; in the depth-10 tree only 1456 (3.66, path out)
+and 572 (3.39, the other parent of 286) clear 3. Parity-matched, the side-branch test gives median
+1.07, 4 of 35 above 2, 728 at 4.93 (baseline 16026) and a counterfactual road of 31.5%, so 728 still
+supplies 6.3 of the 7.9 points above it.
+Baseline note: chat's walk numbers keep 27's climb values in the window; sealed.txt's baseline and
+the parity rerun leave them out. inverse728.py prints both.
+Open: why 95's run of odd steps carries so much traffic; whether 572's branch is the next one.

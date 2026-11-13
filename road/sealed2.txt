@@ -1,0 +1,4 @@
+Collatz 728 follow-up, Nov 12 2026. Sealed before any computing.
+Same A(w) and baseline as sealed.txt (starts <= 10^6, median over w = r mod 27 in [r/1.5, 1.5r]).
+Q1 [X] some node within 10 inverse steps of 728 has ratio above 3 on its own (the luck is concentrated somewhere below, not spread thin). credence 0.60
+Q2 [X] following the heaviest predecessor each step, the ratio stays above 2 for at least 5 consecutive steps below 728. credence 0.50
