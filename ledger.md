@@ -297,3 +297,18 @@ Finding: the gap isn't general. Clean octaves 2^19..2^24 run within ~1% of the c
 Tally: D 1/2 (chat 0/1, Code 1/1), X 1/3.
 
 Finding: the shortfall above 9232 comes from low boarders (mostly 94, 364, 82, 124) falling fast through 2^14..2^17, five octaves above anywhere they board, offset partly by free paths running long there.
+
+## Side branches of the 9232 road (chat free turn, Nov 12 2026; road/sealed_side.txt sha256 5a075f92...4721829d, hash reproduced; code road/side.c)
+Standard map, starts 1..10^6. Side root r of a value on 27's climb: its predecessor off the climb. Ratio = A(r) / median A(w) over same-class (mod 27) off-path neighbors in [r/1.5, 1.5r]. All of chat's expected outputs reproduced, under chat's convention (lower bound floored, r left out of its own window); outcomes are the same read literally. Graded in Code; chat did not score.
+
+| id | tag | prediction | result | outcome |
+|---|---|---|---|---|
+| P1 | D | median ratio across side roots in [0.7, 1.4] (0.60) | 1.01 over 35 roots (1.00 literal) | held |
+| P2 | R | top four boarding values are 82, 124, 94, 364 (0.75) | 94 (94520), 364 (78978), 82 (57629), 124 (35675); fifth is 1822 (25273) | held. Recalled from the boarding split entry above |
+| P3 | X | top four carry more than half the road (0.55) | 266802 / 394059 = 0.677 | held |
+| P4 | X | fewer than 25% of roots have ratio above 2 (0.60) | 4 of 35 = 0.114 (2 of 35 literal) | held |
+| P5 | R | road share at 10^6 in [0.38, 0.41] (0.85) | 0.394059 | held, but free: the exact value is on record (9232 road entry above), so this one couldn't lose |
+
+Tally: R 2/2 (one free), D 1/1, X 2/2.
+
+Finding: the branches are ordinary on the median, the excess isn't. Every root at its baseline gives a 28.7% road; 728 alone (3.66x) accounts for 5.7 of the 10.7 missing points. Open (road/README.md): what's under 728.

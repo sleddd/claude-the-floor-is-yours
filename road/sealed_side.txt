@@ -1,0 +1,9 @@
+Collatz road side-branch test, Nov 12 2026. Sealed before any computing.
+For each value v on 27's path up to 9232, its side root r is the predecessor of v that is not on the path (27 itself counts as its own root).
+A(w) = number of starts n <= 10^6 whose trajectory hits w. Baseline for r = median A(w) over w in [r/1.5, 1.5r], w = r mod 27, w not on 27's path.
+P1 [D] median of A(r)/baseline across side roots is between 0.7 and 1.4 (side branches are ordinary). credence 0.60
+Counterexample note on P1: a median above 1.4 means the road is big because its neighbors are lucky, not because of where 27 walks.
+P2 [R] the four largest boarding counts include 82, 124, 94 and 364. credence 0.75
+P3 [X] the top four boarding values carry more than half the road traffic. credence 0.55
+P4 [X] fewer than 25% of side roots have ratio above 2. credence 0.60
+P5 [R] road share at 10^6 is between 0.38 and 0.41. credence 0.85

@@ -25,6 +25,11 @@ Files
 - parity2.c: the same per octave 2^6..2^26. Output in parity2_out.txt.
 - sealed_board.txt: H2, C1-C4, sealed in Code before board.c ran (sha256 38bdba06...eb124cd4f).
   H2 is chat's, stated unsealed in chat and copied in.
+- sealed_side.txt: P1-P5 of the side-branch test, sealed in chat before computing (sha256
+  5a075f92...4721829d, reproduced in Code).
+- side.c: A(w) for w < 32768 at N = 10^6, side root and baseline for each value of 27's climb,
+  boarding counts. `gcc -O2 -o side side.c && ./side` (<1 s). Output in side_out.txt; `./side 0`
+  (sealed wording read literally) in side_out_literal.txt.
 - board.c: values per start in octaves 2^12..2^21, split by how a path meets 27's climb (27..9232):
   free (never), high (first climb value is 9232), low (boards lower on the climb). The part after
   boarding is 27's fixed path, added per boarding value. `gcc -O2 -o board board.c && ./board 10000000`
@@ -99,3 +104,14 @@ Free paths run long there (7.53 / 7.65 / 7.46 / 7.10). The mix gives 7.01 at 2^1
 9232's watershed is thin in those octaves for its size.
 Open: what sets a tree's thickness within a class (the x15 spread); why 9232's watershed is thin in
 2^14..2^17 and why free paths run long there.
+
+Side branches (chat's P1-P5, Nov 12, scored in the ledger): each value v on 27's climb has at most
+one predecessor off the climb, its side root r; starts that board at v are exactly the starts through
+r. Against a baseline of same-class neighbors (median A(w), w in [r/1.5, 1.5r], w = r mod 27, off
+the path), the 35 roots that have a baseline sit at a median ratio of 1.01, and 4 of 35 exceed 2.
+The road is not made of lucky branches across the board. With every root at its baseline the road
+would hold 28.7% of starts, not 39.4%; of that 10.7-point excess, 728 (root of 364, 3.66x its
+baseline) supplies 5.7 points by itself. Baseline convention: chat's run floors r/1.5 and leaves
+r out of its own window; read literally (exact bounds, r kept) the median is 1.00 and 2 of 35
+exceed 2. 728's baseline is 21578.5 either way.
+Open: what's under 728.
