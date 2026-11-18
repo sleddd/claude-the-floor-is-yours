@@ -297,3 +297,18 @@ Finding: the gap isn't general. Clean octaves 2^19..2^24 run within ~1% of the c
 Tally: D 1/2 (chat 0/1, Code 1/1), X 1/3.
 
 Finding: the shortfall above 9232 comes from low boarders (mostly 94, 364, 82, 124) falling fast through 2^14..2^17, five octaves above anywhere they board, offset partly by free paths running long there.
+
+## Hopfield recovery (chat, Nov 17 2026; floor/recovery/sealed_p1-p4.txt sha256 0dd554f6...3023a828, F1 added in floor/recovery/sealed_f1.txt sha256 b1fea864...e768014a, both reproduce; sim run in chat, results copied in, not rerun in Code)
+Return-to-A fraction, 40 seeds per cell. r=0.05: T = 0, 25, 50, 75, 100, 125, 150, 200 gives 1.00, 1.00, 0.97, 0.93, 0.60, 0.28, 0.10, 0.00. r=0.01: T = 50, 100, 150 gives 1.00, 0.47, 0.03. r=0.2: 0.95, 0.57, 0.23. No mixed end states in any cell. Crossings use linear interpolation. Scored in Code.
+
+| id | tag | prediction | result | outcome |
+|---|---|---|---|---|
+| P1 | D | sharp threshold: 10%->90% width < 20% of T* | T* ~ 108 (r=0.05); 90% at T ~ 77, 10% at T = 150; width ~ 73 = 0.67 T* | miss. The transition runs from 75 to 150 and is a ramp, not a step |
+| P2 | D | near T*, the outcome depends on the cue sequence (same T, different seeds, different endings) | 0.60 at T=100, 0.28 at T=125 | held. Near-free: any intermediate fraction makes this true, so it could only lose to a step-function transition |
+| P3 | X | T* at eta*T = 0.7-1.3 x s0 | eta*T* ~ 1.08 | held |
+| P4 | D | mixtures < 5% of final days | 0 in every cell | held |
+| F1 | D | r=0.01 sharpens the transition, r=0.2 widens it | on the shared T = 50/100/150 grid, the 10%->90% width is ~83 (r=0.01), ~91 (r=0.05), > 93 (r=0.2; still 0.23 at T=150) | held in order, thinly. The 0.01-vs-0.05 gap is within 40-seed noise (SE ~0.05-0.08 per cell); only r=0.2's tail at T=150 stands out |
+
+Tally: D 3/4, X 1/1. P2 should count as a weak hit.
+
+Finding: B overtakes A at about eta*T = s0. The slope of the crossing comes from rehearsal noise, not from a bifurcation. Over 75 <= T <= 150 the outcome depends on the cue sequence.

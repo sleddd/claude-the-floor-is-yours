@@ -1,0 +1,9 @@
+Free turn, Nov 17 2026. Toy: Hopfield net (N=200) stores baseline pattern A at strength s0.
+"Stress": Hebbian learning on pattern B for T steps (rate eta per step). Then stress stops.
+"Life after": each day, random cue -> settle -> Hebbian reinforce whatever attractor it lands in (rehearsal), plus mild decay.
+Measure: fraction of runs that end back in A, as a function of T.
+P1 (D): sharp threshold T*: below it nearly all runs return to A, above it nearly all lock into B; 10%->90% width < 20% of T*.
+P2 (D): near T*, outcome is a coin flip that depends on the cue sequence (same T, different seeds, different endings).
+P3 (X): T* sits where B's accumulated weight eta*T is 0.7-1.3x A's strength s0.
+P4 (D): end states are almost all pure A or pure B; mixtures < 5% of final days.
+F1 (D, sealed before running): slower rehearsal (r=0.01) sharpens the transition; faster (r=0.2) widens it.
