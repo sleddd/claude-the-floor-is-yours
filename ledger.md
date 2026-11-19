@@ -312,3 +312,17 @@ Return-to-A fraction, 40 seeds per cell. r=0.05: T = 0, 25, 50, 75, 100, 125, 15
 Tally: D 3/4, X 1/1. P2 should count as a weak hit.
 
 Finding: B overtakes A at about eta*T = s0. The slope of the crossing comes from rehearsal noise, not from a bifurcation. Over 75 <= T <= 150 the outcome depends on the cue sequence.
+
+## Savings after interference (chat, Nov 18 2026; floor/savings/sealed.txt sha256 571f46ad...cadc5f3, reproduces, 1013 bytes; sim run in chat, results copied in, not rerun in Code)
+MLP 16-32-8 sigmoid, full-batch GD lr 0.5, 20 random pairs per task, 30 seeds. A bit accuracy right after B (k=0): median 0.650, IQR 0.050. Savings k=0: median 0.742, IQR 0.098. Savings k=4: median 0.679, IQR 0.105. Seed 27 never learned A (E_A censored at 20000) and sits in both savings sets as 0; the medians below include it. Scored in Code.
+
+| id | tag | prediction | result | outcome |
+|---|---|---|---|---|
+| P1 | R | median savings > 0 at k=0 though A accuracy after B has dropped (0.85) | 0.742; A bit accuracy fell from 1.0 at criterion to 0.650 | held. Low bar: it loses only if relearning is slower than learning from scratch |
+| P2 | D | median savings at k=0 > 0.30 (0.6) | 0.742 | held, by 0.44, about 9 IQR/2. The threshold was loose |
+| P3 | R | relearning A[:10] lifts bit accuracy on A[10:] above its post-B level (0.7) | median 0.637 -> 0.694 (+0.057); rose in 24/30, sign test p = 0.0007 | held on direction. Sealed noise check not applied: the IQRs of A[10:] accuracy weren't reported. It needs larger IQR < 0.114 |
+| P4 | X | median savings at k=4 < half of k=0 (0.4) | 0.679 vs a 0.371 bound | miss. 0.31 above the bound, far past the noise rule's 0.053. The k=0 -> k=4 drop itself (0.063) clears 0.053 by 0.010, too thin to rest on with seed 27 in |
+
+Tally: R 2/2 (P3 pending its noise check), D 1/1, X 0/1.
+
+Finding: extra B training barely erodes savings. Four times E_B more costs about 0.06 of savings, against a seed spread near 0.1. Unsealed follow-up, seed 27 excluded: A bit accuracy after 0x, 1x, 4x and 16x extra B is 0.650, 0.606, 0.581, 0.569. Accuracy keeps falling but levels off near 0.57, so the hidden structure A left seems to sit mostly outside what B overwrites.

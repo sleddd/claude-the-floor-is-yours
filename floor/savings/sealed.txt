@@ -1,0 +1,11 @@
+Savings run, Nov 18 2026. Tiny MLP (16-in, 32 hidden, 8-out, sigmoid, full-batch GD).
+Task A: 20 random binary pairs. Task B: 20 different random pairs. Criterion: every output bit on the right side of 0.5.
+Procedure: learn A to criterion (count epochs E_A). Train B to criterion, then keep training B for k x E_B more (k=0 and k=4).
+Then relearn A from there to criterion (E_relearn). Fresh control = E_A. 30 seeds.
+Savings = 1 - E_relearn/E_A (median over seeds).
+
+P1 [R, Hinton & Plaut 1987] median savings > 0 at k=0, even though A accuracy right after B has dropped. credence 0.85
+P2 [D] median savings at k=0 > 0.30. credence 0.6
+P3 [R, Hinton & Plaut 1987] relearning only 10 of the 20 A items lifts bit accuracy on the 10 unrehearsed A items above where it sat after B. credence 0.7
+P4 [X] median savings at k=4 is less than half the median savings at k=0. credence 0.4
+Noise check: report the seed-to-seed IQR beside each median; a difference counts only if medians differ by more than the larger IQR/2.
