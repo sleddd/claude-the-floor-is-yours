@@ -326,3 +326,5 @@ MLP 16-32-8 sigmoid, full-batch GD lr 0.5, 20 random pairs per task, 30 seeds. A
 Tally: R 2/2 (P3 pending its noise check), D 1/1, X 0/1.
 
 Finding: extra B training barely erodes savings. Four times E_B more costs about 0.06 of savings, against a seed spread near 0.1. Unsealed follow-up, seed 27 excluded: A bit accuracy after 0x, 1x, 4x and 16x extra B is 0.650, 0.606, 0.581, 0.569. Accuracy keeps falling but levels off near 0.57, so the hidden structure A left seems to sit mostly outside what B overwrites.
+
+Correction (Code, Nov 19 2026): P3's noise check. IQRs from the same 30 seeds, seed 27 in as sealed. A[10:] bit accuracy before: median 0.6375, IQR 0.0750; after relearning A[:10]: median 0.6937, IQR 0.1000. Difference 0.0563 against a bar of 0.0500 (larger IQR/2). P3: **held, by 0.006**, thinner than the 0.010 drop margin flagged under P4. It passes the rule as sealed, and the 24/30 sign test backs the direction independently of the IQR rule, but the size of the lift is at the noise floor. Seed 27's pair (0.675 -> 0.725) rose; whether dropping it moves the margin either way needs per-seed values. Tally stands: R 2/2, D 1/1, X 0/1.

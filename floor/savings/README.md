@@ -11,7 +11,8 @@ The sim ran in chat, and its script isn't in the repo. Results and grading are i
 
 Seed 27 never reached criterion on A (E_A = 20000, censored), so its savings of 0 is not a
 measurement. The sealed medians include it. Dropping it moves each median of 30 by half the gap
-between the 15th and 16th values, which can't change any grade except possibly the P4 noise margin.
+between the 15th and 16th values, which can't change any grade except possibly the two thin noise margins in the ledger.
 
-Open: P3's noise check needs the seed IQR of A[10:] bit accuracy, after B and after the partial
-relearn. Per-seed values would also let the medians be recomputed without seed 27.
+Open: both thin margins (P3's 0.006 past its noise bar, the k=0 -> k=4 drop's 0.010) sit on
+medians that include seed 27. Per-seed values would let them be recomputed without it; more seeds
+would settle whether either is real.
